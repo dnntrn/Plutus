@@ -31,7 +31,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Hi Bros, Have fun with React!
+            Hi Bros, This is the Homepage
           </p>
           <p className="App-intro">If this shows, it means {this.state.apiResponse}</p>
           <a

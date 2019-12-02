@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './resources/logo.svg';
-import './css/App.css';
+import './css/Dashboard.css';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -22,9 +22,9 @@ class Dashboard extends Component {
   render () {
     return (
       <div className="Dashboard">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p className="App-intro">If this shows, it means {this.state.apiResponse}</p>
+        <header className="header">
+          <img src={logo} className="logo" alt="logo" />
+          <p className="intro">If this shows, it means {this.state.apiResponse}</p>
         </header>
       </div>
     );
