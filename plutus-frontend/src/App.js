@@ -2,10 +2,57 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+import Dropdown from './components/Dropdown.js'
+
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
+    this.state = { 
+      apiResponse: "",
+      companies: [
+        {
+          id:1,
+          value: "Microsoft"
+        },
+        {
+          id:2,
+          value: "Google"
+        },
+        {
+          id:3,
+          value: "Facebook"
+        },
+        {
+          id:4,
+          value: "Lyft"
+        },
+        {
+          id:5,
+          value: "Amazon"
+        },
+      ],
+      levels: [
+        {
+          id:1,
+          value: "Entry"
+        },
+        {
+          id:2,
+          value: "Senior"
+        },
+        {
+          id:3,
+          value: "New Grad"
+        },
+        {
+          id:4,
+          value: "Partner"
+        },
+        
+      ],      
+     };
   }
 
   callAPI() {
@@ -23,19 +70,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hi Bros, Have fun with React!.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <Dropdown className="companies" opts={this.state.companies}/>
+
+          <Dropdown className="positions" opts={this.state.levels}/>
+
         </header>
+        
+
       </div>
     );
   }
