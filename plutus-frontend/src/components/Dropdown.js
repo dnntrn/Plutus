@@ -9,30 +9,34 @@ class Dropdown extends Component {
 
 		this.state = {
 			value : " "
-			
 		}
 
 	}
 
+	doCallback(a) {
+       this.props.callback(this.state.value);
+    }
 
-	/*handleChange(event) {
-		alert("You clicked " + event.target.value)
-		this.state.currVal = event.target.value;
-
-
-	}*/
+    handleChange(e) {
+    	this.setState({value: e.target.value});
+    	this.props.callback(e.target.value);
+    	
+    }
+	
 
 
 	render() {
 		return (
 			<div>
-			<select onChange={(e) => this.setState({ value: e.target.value})}>
+			<p><b> {this.props.type} </b></p>
+			<select onChange={(e) => this.handleChange(e)}>
 			{this.props.opts.map((opt) => (
     				<option className={opt.value} value={opt.value}> {opt.value} </option>
     		))}
 			</select>
 
-			<p> Show me the {this.state.value} graph</p>
+			{/*<p> Show me the {this.state.value} graph</p>*/}
+			
 			</div>
 			);
 	}
