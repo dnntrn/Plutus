@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Dropdown from './components/Dropdown.js';
 import Chart from './components/Chart.js';
 
-import './App.css';
+import './css/App.css';
 
 
 class App extends Component {
