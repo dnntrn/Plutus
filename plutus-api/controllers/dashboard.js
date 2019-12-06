@@ -6,7 +6,7 @@ exports.dashboardFilter = function dashboardFilter(positionTitle,, positionLevel
 
   if (gpa > -1) {
     User.find({
-      "jobs.companyName": { $in: companyList},
+      "jobs.companyName": { $in: companyList },
       "gpa": gpa,
       "jobs.positionTitle": positionTitle,
       "jobs.positionLevel": positionLevel,
@@ -17,7 +17,7 @@ exports.dashboardFilter = function dashboardFilter(positionTitle,, positionLevel
     });
   } else {
     User.find({
-      "jobs.companyName": { $in: companyList},
+      "jobs.companyName": { $in: companyList },
       "jobs.positionTitle": positionTitle,
       "jobs.positionLevel": positionLevel,
     }, function(err, result) {
