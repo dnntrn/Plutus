@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-exports.dashboardFilter = function dashboardFilter(positionTitle,, positionLevel, companyList = [], gpa = -1) {
+exports.dashboardFilter = function dashboardFilter(positionTitle, positionLevel, companyList = [], gpa = -1) {
   const Job = mongoose.model('Job');
   const User = mongoose.model('User');
 
