@@ -4,6 +4,7 @@ import Dropdown from './components/Dropdown.js';
 import Chart from './components/Chart.js';
 
 import './css/App.css';
+import FormInput from './components/FormInput.js';
 
 
 class App extends Component {
@@ -11,62 +12,11 @@ class App extends Component {
     super(props);
     this.state = { 
       apiResponse: "",
-      currCompany: null,
-      currLevel: null,
-      companies: [
-        {
-          id:1,
-          value: "Microsoft"
-        },
-        {
-          id:2,
-          value: "Google"
-        },
-        {
-          id:3,
-          value: "Facebook"
-        },
-        {
-          id:4,
-          value: "Lyft"
-        },
-        {
-          id:5,
-          value: "Amazon"
-        },
-      ],
-      levels: [
-        {
-          id:1,
-          value: "Entry"
-        },
-        {
-          id:2,
-          value: "Senior"
-        },
-        {
-          id:3,
-          value: "New Grad"
-        },
-        {
-          id:4,
-          value: "Partner"
-        },
-        
-      ],      
+    
      };
   }
 
-  companyCallback = (companyData) => {
 
-    this.setState({currCompany: companyData});
-
-  }
-
-  levelCallback = (levelData) => {
-
-    this.setState({currLevel: levelData});
-  }
   callAPIHomepage() {
       fetch("http://localhost:9000/")
           .then(res => res.text())
@@ -82,10 +32,13 @@ class App extends Component {
   render() {
     return (
       <div className="App"> 
-        <h1> App </h1>
-        <Dropdown type="Company" callback={this.companyCallback} opts={this.state.companies} />
-        <Dropdown type="Level" callback={this.levelCallback} opts={this.state.levels} />
-        <Chart company={this.state.currCompany} level={this.state.currLevel}/>
+        <h1> Ummm this is Plutus </h1>
+
+        <a href="/dashboard">Click Here, Lets Get Started</a>
+        <br></br>
+        <a href="/recommendations">Click Here for the searching</a>
+        
+
       </div>
 
 
