@@ -78,11 +78,13 @@ class Dashboard extends Component {
     ]};
   }
 
+
   callAPIDashboard() {
       fetch("http://localhost:9000/dashboard")
           .then(res => res.text())
           .then(res => this.setState({ apiResponse: res }));
-  }
+  };
+
 
   componentWillMount() {
       this.callAPIDashboard();
@@ -110,16 +112,16 @@ class Dashboard extends Component {
         <h1>ummmm its dashboardtime bitches</h1>
         <FormInput/>
         <div className="App"> 
-        <h1> App </h1>
-        <Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
-        <Dropdown type="Company" callback={this.companyCallback} opts={this.state.companies} />
-        <Dropdown type="Level" callback={this.levelCallback} opts={this.state.levels} />
-        <Chart company={this.state.currCompany} level={this.state.currLevel}/>
+          <h1> App </h1>
+          <Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
+          <Dropdown type="Company" callback={this.companyCallback} opts={this.state.companies} />
+          <Dropdown type="Level" callback={this.levelCallback} opts={this.state.levels} />
+          <Chart company={this.state.currCompany} level={this.state.currLevel}/>
+        </div>
       </div>
-
-      </div>
-    );
+      )
   }
+
 
 }
 
