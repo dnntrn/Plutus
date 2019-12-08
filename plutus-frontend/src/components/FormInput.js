@@ -3,16 +3,16 @@ import React, { Component } from 'react';
 class FormInput extends Component {
     constructor(props) {
       super(props);
-      this.state = {JobLevel: '',
-                    MinSalary:'',
-                    Keywords:''}      
+      this.state = {jobLevel: '',
+                    minSalary:'',
+                    keywords:''}
       this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);      
+      this.handleSubmit = this.handleSubmit.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
     };
 
-    
-  
+
+
     handleChange = (e) => {
       this.setState({
           [e.target.name]: e.target.value
@@ -21,23 +21,21 @@ class FormInput extends Component {
     onSubmit = (e) => {
           e.preventDefault();
           const FormData = {
-            JobLevel: this.state.JobLevel,
-            MinSalary:this.state.MinSalary,
-            Keywords: this.state.Keywords
+            jobLevel: this.state.jobLevel,
+            minSalary:this.state.minSalary,
+            keywords: this.state.keywords
           }
           console.log(FormData)
-      
-            {/* -----------you would send data to API to get results, I used database for ease, this also clears the form on submit----------------*/}
-            fetch('/api/form-submit-url', {
-              method: 'POST',
-              body: FormData,
-            });
+          fetch('/recommendations', {
+            method: 'POST',
+            body: FormData,
+          });
 
       }
 
-  
+
     handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.JobLevel + this.state.MinSalary +this.state.Keywords);
+      alert('A name was submitted: ' + this.state.jobLevel + this.state.minSalary +this.state.keywords);
       event.preventDefault();
       const data = new FormData(event.target);
       const fetchAndLog = async () => {
@@ -51,24 +49,24 @@ class FormInput extends Component {
       fetchAndLog();
       }
     }
-  
-     
+
+
     render() {
       return (
         <form onSubmit={this.onSubmit}>
           <label>
             Job Level:
-            <input type="text" name="JobLevel" onChange={this.handleChange} />
+            <input type="text" name="jobLevel" onChange={this.handleChange} />
           </label>
           <label>
             Minimum Salary:
-            <input type="text" name="MinSalary" onChange={this.handleChange} />
+            <input type="text" name="minSalary" onChange={this.handleChange} />
           </label>
           <label>
             Comma Separated Keyword Search:
-            <input type="text" name="Keywords" onChange={this.handleChange} />
+            <input type="text" name="keywords" onChange={this.handleChange} />
           </label>
-          <button onClick={(e) => this.onSubmit(e)}>Send</button>         
+          <button onClick={(e) => this.onSubmit(e)}>Send</button>
         </form>
       );
     }
