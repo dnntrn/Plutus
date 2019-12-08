@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import logo from './resources/logo.svg';
 import './css/App.css';
-
+import FormInput from './components/FormInput'
 class Recommendations extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {  apiResponse: "",
+    currJobLevel:null,
+    currKeywords:null,
+    currMinSalary:null,
+    NumCharts:null,
+    };
+  }
+  
 
   render () {
     return (
       <div className="Recommendations">
-
+        <h1>Put some searches in here</h1>
+        <FormInput/>
       </div>
     );
   }
