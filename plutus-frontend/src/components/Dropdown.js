@@ -14,13 +14,12 @@ class Dropdown extends Component {
 	}
 
 	doCallback(a) {
-       this.props.callback(this.state.value);
+	   this.props.callback(this.state.value);
     }
 
     handleChange(e) {
     	this.setState({value: e.target.value});
     	this.props.callback(e.target.value);
-    	
     }
 	
 
