@@ -1,0 +1,24 @@
+.nav {
+  margin-left: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+
+.App-Name {
+  padding-left: 1%;
+  padding-top: 1%;
+}
+
+.App-Subtitle {
+  padding-top: 2.5%;
+  color: #666666;
+}
+
+.salaryBtn {
+  width: 60%;
+}
+
+#nav-dropdown, NavDropdown.Item, NavDropdown {
+  color: "black" !important;
+}

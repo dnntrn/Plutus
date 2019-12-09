@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../components/Dropdown.css';
+import './styles/Dropdown.css';
 
 
 class Dropdown extends Component {
@@ -21,7 +21,7 @@ class Dropdown extends Component {
     	this.setState({value: e.target.value});
     	this.props.callback(e.target.value);
     }
-	
+
 
 
 	render() {
@@ -35,7 +35,7 @@ class Dropdown extends Component {
 			</select>
 
 			{/*<p> Show me the {this.state.value} graph</p>*/}
-			
+
 			</div>
 			);
 	}
