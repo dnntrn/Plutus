@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './resources/logo.svg';
 import './css/Dashboard.css';
 import Dropdown from './components/Dropdown.js';
+import NavBar from './components/NavBar.js';
 import Chart from './components/Chart.js';
 
 class Dashboard extends Component {
@@ -108,12 +109,17 @@ class Dashboard extends Component {
   render () {
     return (
       <div className="Dashboard">
-        <div className="App">
-          <h1> App </h1>
-          <Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
-          <Dropdown type="Company" callback={this.companyCallback} opts={this.state.companies} />
-          <Dropdown type="Level" callback={this.levelCallback} opts={this.state.levels} />
-          <Chart company={this.state.currCompany} level={this.state.currLevel}/>
+        <NavBar />
+        <h1 style={{marginTop: "3%"}}> Dashboard </h1>
+        <div id="allContentDash">
+          <div id="filterBox">
+            <Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
+            <Dropdown type="Company" callback={this.companyCallback} opts={this.state.companies} />
+            <Dropdown type="Level" callback={this.levelCallback} opts={this.state.levels} />
+          </div>
+          <div id="chartBox">
+            <Chart company={this.state.currCompany} level={this.state.currLevel}/>
+          </div>
         </div>
       </div>
       )

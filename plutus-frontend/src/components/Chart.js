@@ -54,7 +54,7 @@ class Chart extends Component {
 				}
 			}
 		}
-		
+
 	}
 
 	render() {
@@ -66,18 +66,14 @@ class Chart extends Component {
 		if (this.props.company == "Google") {
 			working_set = this.state.dummydata.Google
 		}
+
+		// <p> Company inside the chart: {this.props.company} </p>
+		// <p> Level inside the chart: {this.props.level} </p>
+		// <p> Test {this.state.temp} </p>
 		return (
-
 			<div className="chart">
-				\/ CHART COMPONENT \/
-				<p> Company inside the chart: {this.props.company} </p>
-				<p> Level inside the chart: {this.props.level} </p>
-				<p> Test {this.state.temp} </p>
-				<Line data={working_set} />
-				/\ CHART COMPONENT /\
-
+				<Line data={working_set}/>
 			</div>
-
 
 		);
 
