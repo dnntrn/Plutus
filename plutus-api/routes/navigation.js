@@ -65,12 +65,15 @@ router.get('/recommendations', function(req, res, next) {
                   "must": [
                     { "match": { "Position": jobRole }},
                     { "match": { "JobLevel": jobLevel }},
-                    { "match": { "salary": minSalary }},
                     { "match": { "city": city }},
                     { "match": { "state": state }},
                     { "match": { "CompanyDescription": keywords }},
-                  ]
-              }
+                  ],
+                  "filter": [
+                      { "range": { "salary": { "gte": minSalary }}}
+                    ]
+              },
+
           }
       }
   }).then(function(resp) {
