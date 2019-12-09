@@ -25,3 +25,7 @@
 .inputInfo {
   color: white;
 }
+
+#resultContent {
+  display:flex;
+}

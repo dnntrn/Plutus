@@ -4,6 +4,7 @@ import './css/Recommendations.css';
 import NavBar from './components/NavBar'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import SearchResultBox from './components/SearchResultBox'
 
 class Recommendations extends Component {
   constructor(props) {
@@ -80,6 +81,7 @@ class Recommendations extends Component {
           </div>
 
           <div id= "searchBox">
+            <h3>Search here:</h3>
             <Form>
               <Form.Group controlId="">
                 <Form.Label>Position:</Form.Label>
@@ -124,12 +126,10 @@ class Recommendations extends Component {
           </div>
 
           <div id= "resultContent">
-            <ul>
-              {companyMatches.map( (listItem) => {
-                return <li>{listItem._source.CompanyName}</li>
-              }
-              )}
-            </ul>
+            {companyMatches.map( (listItem) => {
+              return <SearchResultBox style={{marginRight: "5%"}} companyName= {listItem._source.CompanyName}/>
+            }
+            )}
           </div>
         </div>
       </div>
