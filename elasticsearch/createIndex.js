@@ -9,7 +9,7 @@ module.exports = createIndex;
 
 async function test(){
     try {
-        const resp = await createIndex('blog');
+        const resp = await createIndex('company-review');
         console.log(resp);
     } catch (e) {
         console.log(e);

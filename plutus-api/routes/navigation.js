@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const filterData = require('../controllers/dashboard');
-const search = require('../../elasticsearch/search.js');
-const es = require('elasticsearch');
+const esClient = require('../../elasticsearch/elasticClient.js');
 
 
 /* GET home page. */
@@ -14,25 +13,32 @@ router.get('/dashboard', function(req, res, next) {
   res.send("Dashboard is working.");
 });
 
-router.post('/recommendations', function(req, res, next) {
-  console.log("hello");
-  // const { jobLevel, minSalary, keywords } = req.body;
-  console.log(req.body);
+//
+// router.get('/recommendations', function(req, res, next) {
+//   res.send("Recommendations is working.");
+// });
 
+router.get('/recommendations', function(req, res, next) {
+  const { jobLevel, minSalary, keywords } = req.query;
 
-  search ({
-      index: 'blog',
-      type: 'posts',
+  esClient.search({
+      index: 'company-review',
       body: {
           query: {
               match: {
-                  "PostName": 'Node.js'
+                  "CompanyDescription": keywords
               }
           }
       }
-  });
+  }).then(function(resp) {
+      res.json(resp.hits.hits);
+  }, function(err) {
+      console.trace(err.message);
+  }).catch(function(err){
+    console.log(err)
+  })
 
-  res.send("Search/Recommendation Page");
+
 });
 
 

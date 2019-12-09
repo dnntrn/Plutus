@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 class FormInput extends Component {
     constructor(props) {
       super(props);
-      this.state = {jobLevel: '',
-                    minSalary:'',
-                    keywords:''}
+      this.state = {
+        jobLevel: '',
+        minSalary:'',
+        keywords:'',
+        companyMatches: '',
+      }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
@@ -17,20 +20,38 @@ class FormInput extends Component {
       this.setState({
           [e.target.name]: e.target.value
       })
-  }
-    onSubmit = (e) => {
-          e.preventDefault();
-          const FormData = {
-            jobLevel: this.state.jobLevel,
-            minSalary:this.state.minSalary,
-            keywords: this.state.keywords
-          }
-          console.log(FormData)
-          fetch('/recommendations', {
-            method: 'POST',
-            body: FormData,
-          });
+    }
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        const formData = {
+          jobLevel: this.state.jobLevel,
+          minSalary:this.state.minSalary,
+          keywords: this.state.keywords
+        }
+
+        console.log(formData)
+
+        const queryString = "/recommendations/?jobLevel=" + formData.jobLevel + "&minSalary=" + formData.minSalary + "&keywords=" + formData.keywords
+
+        console.log(queryString)
+
+        fetch(queryString, {
+            method: 'GET',
+          })
+          .then(searchResponse => searchResponse.json())
+          .then(data => {
+            console.log(data);
+            if (data.length > 0) {
+              this.setState({companyMatches: data[0]._source.CompanyName})
+              console.log(data[0]._source.CompanyName)
+            } else {
+              this.setState({companyMatches: []})
+            }
+          })
+          .catch(function(err){
+            console.log(err)
+          })
       }
 
 
@@ -53,21 +74,25 @@ class FormInput extends Component {
 
     render() {
       return (
-        <form onSubmit={this.onSubmit}>
-          <label>
-            Job Level:
-            <input type="text" name="jobLevel" onChange={this.handleChange} />
-          </label>
-          <label>
-            Minimum Salary:
-            <input type="text" name="minSalary" onChange={this.handleChange} />
-          </label>
-          <label>
-            Comma Separated Keyword Search:
-            <input type="text" name="keywords" onChange={this.handleChange} />
-          </label>
-          <button onClick={(e) => this.onSubmit(e)}>Send</button>
-        </form>
+        <div>
+          <form onSubmit={this.onSubmit}>
+            <label>
+              Job Level:
+              <input type="text" name="jobLevel" onChange={this.handleChange} />
+            </label>
+            <label>
+              Minimum Salary:
+              <input type="text" name="minSalary" onChange={this.handleChange} />
+            </label>
+            <label>
+              Comma Separated Keyword Search:
+              <input type="text" name="keywords" onChange={this.handleChange} />
+            </label>
+            <button onClick={(e) => this.onSubmit(e)}>Send</button>
+          </form>
+
+          <h1>{this.state.companyMatches}</h1>
+        </div>
       );
     }
   }

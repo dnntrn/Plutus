@@ -2,13 +2,12 @@ const esClient = require('./elasticClient');
 
 
 esClient.index({
-    index: 'blog',
-    id: '1',
-    type: 'posts',
+    index: 'company-review',
+    id: '2',
+    type: 'text',
     body: {
-        "PostName": "Integrating Elasticsearch Into Your Node.js Application",
-        "PostType": "Tutorial",
-        "PostBody": "This is the text of our tutorial about using Elasticsearch in your Node.js application.",
+        "CompanyName": "Microsoft",
+        "CompanyDescription": "Cool company, lots of free snacks. Guy named Yair doesn't work here",
     }
 }, function(err, resp, status) {
     console.log(resp);
