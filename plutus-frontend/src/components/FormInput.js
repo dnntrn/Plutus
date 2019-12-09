@@ -7,7 +7,7 @@ class FormInput extends Component {
         jobLevel: '',
         minSalary:'',
         keywords:'',
-        companyMatches: '',
+        companyMatches: [],
       }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,7 +43,7 @@ class FormInput extends Component {
           .then(data => {
             console.log(data);
             if (data.length > 0) {
-              this.setState({companyMatches: data[0]._source.CompanyName})
+              this.setState({companyMatches: data})
               console.log(data[0]._source.CompanyName)
             } else {
               this.setState({companyMatches: []})
@@ -73,6 +73,8 @@ class FormInput extends Component {
 
 
     render() {
+      const { companyMatches } = this.state
+
       return (
         <div>
           <form onSubmit={this.onSubmit}>
@@ -91,7 +93,12 @@ class FormInput extends Component {
             <button onClick={(e) => this.onSubmit(e)}>Send</button>
           </form>
 
-          <h1>{this.state.companyMatches}</h1>
+          <ul>
+            {companyMatches.map( (listItem) => {
+              return <li>{listItem._source.CompanyName}</li>
+            }
+            )}
+          </ul>
         </div>
       );
     }

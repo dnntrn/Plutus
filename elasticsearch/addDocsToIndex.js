@@ -7,7 +7,7 @@ esClient.index({
     type: 'text',
     body: {
         "CompanyName": "Microsoft",
-        "CompanyDescription": "Cool company, lots of free snacks. Guy named Yair doesn't work here",
+        "CompanyDescription": "Bad company, no free snacks. Guy named Yair doesn't work here",
     }
 }, function(err, resp, status) {
     console.log(resp);
