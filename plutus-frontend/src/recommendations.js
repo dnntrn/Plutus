@@ -12,8 +12,10 @@ class Recommendations extends Component {
 
     this.state = {
       apiResponse: '',
-      jobLevel: '',
-      minSalary:'',
+      jobRole:'Software Engineer',
+      jobLevel:'entryLevel',
+      location:'',
+      minSalary:0,
       keywords:'',
       companyMatches: [],
       currJobLevel:null,
@@ -36,14 +38,23 @@ class Recommendations extends Component {
   onSubmit = (e) => {
       e.preventDefault();
       const formData = {
+        jobRole: this.state.jobRole,
         jobLevel: this.state.jobLevel,
+        location: this.state.location,
         minSalary:this.state.minSalary,
         keywords: this.state.keywords
       }
 
       console.log(formData)
 
-      const queryString = "/recommendations/?jobLevel=" + formData.jobLevel + "&minSalary=" + formData.minSalary + "&keywords=" + formData.keywords
+      const jobRoleArr = formData.jobRole.split(" ");
+      const jobRole = jobRoleArr[0] + "+" + jobRoleArr[1]
+
+      const locationArr = formData.location.split(", ");
+      const city = locationArr[0]
+      const state = locationArr[1]
+
+      const queryString = "/recommendations/?jobLevel=" + formData.jobLevel + "&minSalary=" + formData.minSalary + "&keywords=" + formData.keywords + "&jobRole=" + jobRole + "&city=" + city + "&state=" + state
 
       console.log(queryString)
 
@@ -86,32 +97,40 @@ class Recommendations extends Component {
               <Form.Group controlId="">
                 <Form.Label>Position:</Form.Label>
                 <Form.Control as="select" name="jobRole" onChange={this.handleChange}>
-                  <option>Software Engineer</option>
-                  <option>Product Designer</option>
-                  <option>Engineering Manager</option>
-                  <option>Product Manager</option>
-                  <option>Data Scientist</option>
+                  <option value= "Software Engineer">Software Engineer</option>
+                  <option value= "Product Designer">Product Designer</option>
+                  <option value= "Engineering Manager">Engineering Manager</option>
+                  <option value= "Product Manager">Product Manager</option>
+                  <option value= "Data Scientist">Data Scientist</option>
                 </Form.Control>
               </Form.Group>
 
               <Form.Group controlId="">
                 <Form.Label>Job Level:</Form.Label>
                 <Form.Control as="select" name="jobLevel" onChange={this.handleChange}>
-                  <option>entry level (0-3 yrs experience)</option>
-                  <option>mid level (3-6 yrs experience)</option>
-                  <option>senior level (6+ yrs experience)</option>
-                  <option>management</option>
-                  <option>upper management</option>
+                  <option value= "entryLevel">entry level (0-3 yrs experience)</option>
+                  <option value= "midLevel">mid level (3-6 yrs experience)</option>
+                  <option value= "seniorLevel">senior level (6+ yrs experience)</option>
+                  <option value= "management">management</option>
+                  <option value= "upperManagement">upper management</option>
                 </Form.Control>
               </Form.Group>
 
               <Form.Group controlId="">
-                <Form.Label>Minimum Salary</Form.Label>
+                <Form.Label>Preferred Position Location</Form.Label>
+                <Form.Control type="text" name="location" onChange={this.handleChange} />
+                <Form.Text className="inputInfo">
+                  Format: City, State
+                </Form.Text>
+              </Form.Group>
+
+              <Form.Group controlId="">
+                <Form.Label>Minimum Desired Salary</Form.Label>
                 <Form.Control type="text" name="minSalary" onChange={this.handleChange} />
               </Form.Group>
 
               <Form.Group controlId="">
-                <Form.Label>Keyword Search</Form.Label>
+                <Form.Label>Company Keyword Search</Form.Label>
                 <Form.Control type="text" name="keywords" onChange={this.handleChange} />
                 <Form.Text className="inputInfo">
                   Please enter your keywords seperated by commas.
