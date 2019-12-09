@@ -20,6 +20,7 @@ class NavBar extends Component {
 			experience: '',
 			positionLocation: '',
 			gradYear: '',
+			salary: 0,
 			degreeLevel: 'bachelors',
 		}
 
@@ -44,14 +45,23 @@ class NavBar extends Component {
 				experience: this.state.experience,
 				positionLocation: this.state.positionLocation,
 				gradYear: this.state.gradYear,
+				salary: this.state.salary,
 				degreeLevel: this.state.degreeLevel,
       }
 
       console.log(submitData)
 
-			this.toggleModal()
+			fetch('/addASalary', {
+					headers: {
+			      'Accept': 'application/json',
+			      'Content-Type': 'application/json'
+			    },
+          method: 'POST',
+					body: JSON.stringify(submitData),
+      })
 
-  }
+			this.toggleModal()
+	}
 
 
 	toggleModal () {
@@ -130,6 +140,12 @@ class NavBar extends Component {
 											<Form.Label>Position Location</Form.Label>
 											<Form.Control type="text" name="positionLocation" onChange={this.handleChange} />
 										</Form.Group>
+
+										<Form.Group controlId="">
+											<Form.Label>Salary</Form.Label>
+											<Form.Control type="number" name="salary" onChange={this.handleChange} />
+										</Form.Group>
+
 										<Form.Group controlId="">
 											<Form.Label>NYU Graduation Year</Form.Label>
 											<Form.Control type="number" name="gradYear" onChange={this.handleChange} />
