@@ -27,7 +27,7 @@ router.post('/addASalary', function(req, res, next) {
     degreeLevel,
   } = req.body
 
-  const locationArr = positionLocation.split(",");
+  const locationArr = positionLocation.split(", ");
   const city = locationArr[0];
   const state = locationArr[1];
   const uuidv4 = require('uuid/v4');
@@ -53,14 +53,23 @@ router.post('/addASalary', function(req, res, next) {
 
 
 router.get('/recommendations', function(req, res, next) {
-  const { jobLevel, minSalary, keywords } = req.query;
+  const { jobRole, jobLevel, city, state, minSalary, keywords } = req.query;
+
+  console.log(jobRole)
 
   esClient.search({
       index: 'company-review',
       body: {
           query: {
-              match: {
-                  "CompanyDescription": keywords
+            "bool" : {
+                  "must": [
+                    { "match": { "Position": jobRole }},
+                    { "match": { "JobLevel": jobLevel }},
+                    { "match": { "salary": minSalary }},
+                    { "match": { "city": city }},
+                    { "match": { "state": state }},
+                    { "match": { "CompanyDescription": keywords }},
+                  ]
               }
           }
       }
