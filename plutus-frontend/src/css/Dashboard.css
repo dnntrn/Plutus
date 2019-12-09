@@ -6,6 +6,26 @@
   height: 40vmin;
 }
 
+#allContentDash {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  display: flex;
+}
+
+#filterBox {
+  width: 10%;
+  margin-left: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-right: 5%;
+}
+
+#chartBox {
+  width: 60%;
+}
+
 .header {
   background-color: #282c34;
   min-height: 100vh;
