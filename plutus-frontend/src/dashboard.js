@@ -3,7 +3,6 @@ import logo from './resources/logo.svg';
 import './css/Dashboard.css';
 import Dropdown from './components/Dropdown.js';
 import Chart from './components/Chart.js';
-import FormInput from './components/FormInput';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -54,8 +53,8 @@ class Dashboard extends Component {
         id:4,
         value: "Partner"
       },
-      
-    ],    
+
+    ],
     chartOptions:[
       {
         id:1,
@@ -73,7 +72,7 @@ class Dashboard extends Component {
         id:4,
         value: "4"
       },
-      
+
 
     ]};
   }
@@ -109,9 +108,7 @@ class Dashboard extends Component {
   render () {
     return (
       <div className="Dashboard">
-        <h1>ummmm its dashboardtime bitches</h1>
-        <FormInput/>
-        <div className="App"> 
+        <div className="App">
           <h1> App </h1>
           <Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
           <Dropdown type="Company" callback={this.companyCallback} opts={this.state.companies} />

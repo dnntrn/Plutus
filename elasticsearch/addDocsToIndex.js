@@ -1,0 +1,14 @@
+const esClient = require('./elasticClient');
+
+
+esClient.index({
+    index: 'company-review',
+    id: '2',
+    type: 'text',
+    body: {
+        "CompanyName": "Microsoft",
+        "CompanyDescription": "Bad company, no free snacks. Guy named Yair doesn't work here",
+    }
+}, function(err, resp, status) {
+    console.log(resp);
+});

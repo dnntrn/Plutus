@@ -23,7 +23,7 @@ const uniqueValidator = require("mongoose-unique-validator");
 // });
 
 
-const User = new Schema({
+const UserSchema = new Schema({
   userID: {type: String, required: true, unique: true},
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
@@ -39,7 +39,7 @@ const User = new Schema({
 });
 
 
-const User = mongoose.model("User", User);
+const User = mongoose.model("User", UserSchema);
 // const Job = mongoose.model("Job", Job);
 // const Company = mongoose.model("Company", Company);
 
