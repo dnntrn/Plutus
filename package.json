@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "elasticsearch": "^16.5.0"
+    "bootstrap": "^4.4.1",
+    "elasticsearch": "^16.5.0",
+    "react-bootstrap": "^1.0.0-beta.16"
   }
 }

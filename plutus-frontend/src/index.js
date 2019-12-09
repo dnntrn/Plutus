@@ -4,6 +4,8 @@ import './css/index.css';
 import App from './App';
 import Dashboard from "./dashboard";
 import Recommendations from "./recommendations";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import {
   BrowserRouter,
   HashRouter,
