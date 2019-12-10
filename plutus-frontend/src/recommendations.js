@@ -12,7 +12,7 @@ class Recommendations extends Component {
 
     this.state = {
       apiResponse: '',
-      jobRole:'Software Engineer',
+      jobRole:'softwareEngineer',
       jobLevel:'entryLevel',
       location:'',
       minSalary:0,
@@ -97,11 +97,11 @@ class Recommendations extends Component {
               <Form.Group controlId="">
                 <Form.Label>Position:</Form.Label>
                 <Form.Control as="select" name="jobRole" onChange={this.handleChange}>
-                  <option value= "Software Engineer">Software Engineer</option>
-                  <option value= "Product Designer">Product Designer</option>
-                  <option value= "Engineering Manager">Engineering Manager</option>
-                  <option value= "Product Manager">Product Manager</option>
-                  <option value= "Data Scientist">Data Scientist</option>
+                  <option value= "softwareEngineer">Software Engineer</option>
+                  <option value= "productDesigner">Product Designer</option>
+                  <option value= "engineeringManager">Engineering Manager</option>
+                  <option value= "productManager">Product Manager</option>
+                  <option value= "dataScientist">Data Scientist</option>
                 </Form.Control>
               </Form.Group>
 
