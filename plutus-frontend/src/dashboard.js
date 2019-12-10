@@ -17,6 +17,10 @@ class Dashboard extends Component {
     chartArray:[],
     companies: [
       {
+        id:0,
+        value: ""
+      },
+      {
         id:1,
         value: "Microsoft"
       },
@@ -38,6 +42,10 @@ class Dashboard extends Component {
       },
     ],
     levels: [
+      {
+        id:0,
+        value: ""
+      },
       {
         id:1,
         value: "Entry"
