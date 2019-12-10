@@ -20,3 +20,12 @@
 .App-link {
   color: #09d3ac;
 }
+
+
+ .Jumbotron{
+    background-color: #ffbe47;
+    color:black;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+  }
+

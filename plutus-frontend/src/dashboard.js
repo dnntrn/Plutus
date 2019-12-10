@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './resources/logo.svg';
 import './css/Dashboard.css';
 import Dropdown from './components/Dropdown.js';
 import NavBar from './components/NavBar.js';
@@ -15,6 +14,7 @@ class Dashboard extends Component {
     currKeywords:null,
     currMinSalary:null,
     NumCharts:null,
+    chartArray:[],
     companies: [
       {
         id:1,
@@ -83,6 +83,7 @@ class Dashboard extends Component {
       fetch("http://localhost:9000/dashboard")
           .then(res => res.text())
           .then(res => this.setState({ apiResponse: res }));
+
   };
 
 
@@ -104,7 +105,8 @@ class Dashboard extends Component {
     this.setState({NumCharts: num});
   }
   componentDidUpdate(){
-    let x = this.state.NumCharts;
+  
+
   }
   render () {
     return (
@@ -118,7 +120,7 @@ class Dashboard extends Component {
             <Dropdown type="Level" callback={this.levelCallback} opts={this.state.levels} />
           </div>
           <div id="chartBox">
-            <Chart company={this.state.currCompany} level={this.state.currLevel}/>
+            <Chart company={this.state.currCompany} level={this.state.currLevel} />
           </div>
         </div>
       </div>
