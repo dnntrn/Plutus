@@ -14,7 +14,7 @@ class NavBar extends Component {
 		this.state = {
 			showModal: false,
 			companyName: '',
-			positionTitle: '',
+			positionTitle: 'softwareEngineer',
 			positionLevel: 'entryLevel',
 			hireYear: '',
 			experience: '',
@@ -131,7 +131,6 @@ class NavBar extends Component {
 								  </Form.Group>
 								  <Form.Group controlId="">
 									  <Form.Label>Position Title</Form.Label>
-									  {/*<Form.Control type="text" name="positionTitle" onChange={this.handleChange} />*/}
 									  <Form.Control as="select" name="positionTitle" onChange={this.handleChange}>
 										  <option value="softwareEngineer">Software Engineer</option>
 										  <option value="productDesigner">Product Designer</option>
@@ -195,9 +194,9 @@ class NavBar extends Component {
 					  </Form>
 				  </Modal.Body>
 		</Modal>
-	  
+
 			</div>
-		
+
 	  );
 	}
 }
