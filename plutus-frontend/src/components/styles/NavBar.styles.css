@@ -12,7 +12,7 @@
 
 .App-Subtitle {
   padding-top: 2.5%;
-  color: #666666;
+  color:black;
 }
 
 .salaryBtn {
@@ -21,4 +21,12 @@
 
 #nav-dropdown, NavDropdown.Item, NavDropdown {
   color: "black" !important;
+}
+#basic-navbar-nav .nav-link{
+  color:black;
+  font-size:1.5em;
+  
+}
+#basic-navbar-nav .nav-link:hover{
+  color:brown;
 }

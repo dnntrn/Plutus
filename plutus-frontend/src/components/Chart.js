@@ -8,6 +8,7 @@ class Chart extends Component {
 		super(props);
 		this.state = {
 			dummydata: {
+
 				default: {
 					labels: ['Mar 2019', 'Apr 2019', 'May 2019', 'Jun 2019', 'Jul 2019'],
 					datasets: [
@@ -52,6 +53,7 @@ class Chart extends Component {
 						}
 					]
 				}
+				
 			}
 		}
 

@@ -75,13 +75,30 @@ class NavBar extends Component {
 	render() {
 
 		return (
-			<div style={{borderBottom:"solid black .5px"}}>
-				<Nav activeKey = {this.props.activeKey}>
+			<div style={{ backgroundColor:"#FFC762"}}>
+				<Navbar bg="#FFC762" expand="lg">
+				<Navbar.Brand href="/">     <img src={ "/god-of-wealth.png" } style={{height:70}}  alt=""></img>
+				</Navbar.Brand>
+				<Navbar.Toggle aria-controls="basic-navbar-nav" />
+				<Navbar.Collapse id="basic-navbar-nav" >
+					<Nav className="mr-auto" >
+					<Nav.Link href="/">Home</Nav.Link>
+					<Nav.Link href="/dashboard">Dashboard</Nav.Link>
+					<Nav.Link href="/Recommendations">Recommendations</Nav.Link>
+					<Nav.Link href="#" onClick={this.toggleModal}>Add a Salary</Nav.Link>
+					</Nav>
+				</Navbar.Collapse>
+				</Navbar>
+				{/*<Nav activeKey = {this.props.activeKey}>
 					<Navbar.Brand>
-						<img src={ "/god-of-wealth.png" } style={{height:70}} alt="logo" />
+						<a href = "/">
+							<img src={ "/god-of-wealth.png" } style={{height:70}} alt="logo"/>
+						</a>
 					</Navbar.Brand>
 				  <Nav.Item eventKey="1" className="App-Name">
-				    <h1 eventKey="disabled" disabled>Plutus</h1>
+				  	<a href = "/" style={{  textDecoration:"none", color: 'inherit'}}>
+				    	<h1 eventKey="disabled" disabled>Plutus</h1>
+					</a>
 				  </Nav.Item>
 				  <Nav.Item eventKey="2" className="App-Subtitle">
 						<Nav.Link eventKey="disabled" disabled>
@@ -89,90 +106,98 @@ class NavBar extends Component {
 						</Nav.Link>
 				  </Nav.Item>
 
-					<NavDropdown title="Navigate" id="nav-dropdown">
+				<NavDropdown title="Navigate" id="nav-dropdown" style={{marginTop:"30px"}}>
 		        <NavDropdown.Item eventKey="4.1" href="/">Home</NavDropdown.Item>
 		        <NavDropdown.Item eventKey="4.2" href="/dashboard">Dashboard</NavDropdown.Item>
 		        <NavDropdown.Item eventKey="4.3" href="/recommendations">Recommendations</NavDropdown.Item>
 		        <NavDropdown.Divider />
 		        <NavDropdown.Item eventKey="4.4" onSelect={this.toggleModal}>Add your salary info</NavDropdown.Item>
 		      </NavDropdown>
-				</Nav>
+		</Nav> */}
 
-				<>
-		      <Modal show={this.state.showModal} onHide={this.toggleModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-		        <Modal.Header closeButton>
-		          <Modal.Title>Add Your Salary Info</Modal.Title>
-		        </Modal.Header>
-		        <Modal.Body>
-							<Form>
 
-								<Form.Row>
-									<Col>
-										<Form.Group controlId="">
-											<Form.Label>Company Name</Form.Label>
-											<Form.Control type="text" name="companyName" onChange={this.handleChange} />
-										</Form.Group>
-										<Form.Group controlId="">
-											<Form.Label>Position Title</Form.Label>
-											<Form.Control type="text" name="positionTitle" onChange={this.handleChange} />
-										</Form.Group>
-										<Form.Group controlId="">
-											<Form.Label>Position Level</Form.Label>
-											<Form.Control as="select" name="positionLevel" onChange={this.handleChange}>
-												<option value="entryLevel">entry level (0-3 yrs experience)</option>
-												<option value="midLevel">mid level (3-6 yrs experience)</option>
-												<option value="seniorLevel">senior level (6+ yrs experience)</option>
-												<option value="management">management</option>
-												<option value="upperManagement">upper management</option>
-											</Form.Control>
-										</Form.Group>
-										<Form.Group controlId="">
-											<Form.Label>Year of Hire</Form.Label>
-											<Form.Control type="number" name="hireYear" onChange={this.handleChange} />
-										</Form.Group>
-										<Form.Group controlId="">
-									    <Form.Label>Describe your experience</Form.Label>
-									    <Form.Control as="textarea" name="experience" rows="3" onChange={this.handleChange} />
-									  </Form.Group>
-									</Col>
-									<Col>
-										<Form.Group controlId="">
-											<Form.Label>Position Location</Form.Label>
-											<Form.Control type="text" name="positionLocation" onChange={this.handleChange} />
-										</Form.Group>
+		<Modal show={this.state.showModal} onHide={this.toggleModal} size="lg" id="salaryModal" aria-labelledby="contained-modal-title-vcenter" centered>
+		  <Modal.Header closeButton>
+			<Modal.Title>Add Your Salary Info</Modal.Title>
+		  </Modal.Header>
+		  <Modal.Body>
+					  <Form>
 
-										<Form.Group controlId="">
-											<Form.Label>Salary</Form.Label>
-											<Form.Control type="number" name="salary" onChange={this.handleChange} />
-										</Form.Group>
+						  <Form.Row>
+							  <Col>
+								  <Form.Group controlId="">
+									  <Form.Label>Company Name</Form.Label>
+									  <Form.Control type="text" name="companyName" onChange={this.handleChange} />
+								  </Form.Group>
+								  <Form.Group controlId="">
+									  <Form.Label>Position Title</Form.Label>
+									  {/*<Form.Control type="text" name="positionTitle" onChange={this.handleChange} />*/}
+									  <Form.Control as="select" name="positionTitle" onChange={this.handleChange}>
+										  <option value="softwareEngineer">Software Engineer</option>
+										  <option value="productDesigner">Product Designer</option>
+										  <option value="engineeringManager">Engineering Manager</option>
+										  <option value="productManager">Product Manager</option>
+										  <option value="dataScientist">Data Scientist</option>
+									  </Form.Control>
+								  </Form.Group>
+								  <Form.Group controlId="">
+									  <Form.Label>Position Level</Form.Label>
+									  <Form.Control as="select" name="positionLevel" onChange={this.handleChange}>
+										  <option value="entryLevel">Entry level (0-3 yrs experience)</option>
+										  <option value="midLevel">Mid level (3-6 yrs experience)</option>
+										  <option value="seniorLevel">Senior level (6+ yrs experience)</option>
+										  <option value="management">Management</option>
+										  <option value="upperManagement">Upper management</option>
+									  </Form.Control>
+								  </Form.Group>
+								  <Form.Group controlId="">
+									  <Form.Label>Year of Hire</Form.Label>
+									  <Form.Control type="number" name="hireYear" onChange={this.handleChange} />
+								  </Form.Group>
+								  <Form.Group controlId="">
+								  <Form.Label>Describe your experience</Form.Label>
+								  <Form.Control as="textarea" name="experience" rows="3" onChange={this.handleChange} />
+								</Form.Group>
+							  </Col>
+							  <Col>
+								  <Form.Group controlId="">
+									  <Form.Label>Position Location</Form.Label>
+									  <Form.Control type="text" name="positionLocation" onChange={this.handleChange} />
+								  </Form.Group>
 
-										<Form.Group controlId="">
-											<Form.Label>NYU Graduation Year</Form.Label>
-											<Form.Control type="number" name="gradYear" onChange={this.handleChange} />
-										</Form.Group>
-										<Form.Group controlId="">
-											<Form.Label>NYU Graduation GPA</Form.Label>
-											<Form.Control type="number" name="gpa" onChange={this.handleChange} />
-										</Form.Group>
-										<Form.Group controlId="">
-											<Form.Label>Level of Degree Achieved</Form.Label>
-											<Form.Check name="degreeLevel" onChange={this.handleChange} value="bachelors" type="radio" label="bachelors" />
-											<Form.Check name="degreeLevel" onChange={this.handleChange} value="masters" type="radio" label="masters" />
-											<Form.Check name="degreeLevel" onChange={this.handleChange} value="phd" type="radio" label="Ph.D" />
-										</Form.Group>
-									</Col>
-								</Form.Row>
+								  <Form.Group controlId="">
+									  <Form.Label>Salary</Form.Label>
+									  <Form.Control type="number" name="salary" onChange={this.handleChange} />
+								  </Form.Group>
 
-								<Modal.Footer>
-									<Button variant="secondary" type="submit" onClick={(e) => this.onSubmit(e)}>
-										Submit
-									</Button>
-								</Modal.Footer>
-							</Form>
-						</Modal.Body>
-		      </Modal>
-				</>
+								  <Form.Group controlId="">
+									  <Form.Label>NYU Graduation Year</Form.Label>
+									  <Form.Control type="number" name="gradYear" onChange={this.handleChange} />
+								  </Form.Group>
+								  <Form.Group controlId="">
+									  <Form.Label>NYU Graduation GPA</Form.Label>
+									  <Form.Control type="number" name="gpa" onChange={this.handleChange} />
+								  </Form.Group>
+								  <Form.Group controlId="">
+									  <Form.Label>Level of Degree Achieved</Form.Label>
+									  <Form.Check name="degreeLevel" onChange={this.handleChange} value="bachelors" type="radio" label="bachelors" />
+									  <Form.Check name="degreeLevel" onChange={this.handleChange} value="masters" type="radio" label="masters" />
+									  <Form.Check name="degreeLevel" onChange={this.handleChange} value="phd" type="radio" label="Ph.D" />
+								  </Form.Group>
+							  </Col>
+						  </Form.Row>
+
+						  <Modal.Footer>
+							  <Button variant="secondary" type="submit" onClick={(e) => this.onSubmit(e)}>
+								  Submit
+							  </Button>
+						  </Modal.Footer>
+					  </Form>
+				  </Modal.Body>
+		</Modal>
+	  
 			</div>
+		
 	  );
 	}
 }
