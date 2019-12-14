@@ -6,6 +6,26 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import SearchResultBox from './components/SearchResultBox'
 
+
+const arrayData =[
+  {
+    id: '1 - Jerry',
+    name: 'Jerry'    
+  },
+  {
+    id: '2 - Elaine',
+    name: 'Elaine'    
+  },
+  {
+    id: '3 - Kramer',
+    name: 'Kramer'    
+  },
+  {
+    id: '4 - George',
+    name: 'George'    
+  },
+];
+
 class Recommendations extends Component {
   constructor(props) {
     super(props);

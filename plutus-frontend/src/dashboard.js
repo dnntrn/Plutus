@@ -3,7 +3,8 @@ import './css/Dashboard.css';
 import Dropdown from './components/Dropdown.js';
 import NavBar from './components/NavBar.js';
 import Chart from './components/Chart.js';
-
+import {Row,Col} from 'react-bootstrap';
+import FullChart from './components/FullChart'
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -13,8 +14,7 @@ class Dashboard extends Component {
     currJobLevel:null,
     currKeywords:null,
     currMinSalary:null,
-    NumCharts:null,
-    chartArray:[],
+    NumCharts:1,
     companies: [
       {
         id:0,
@@ -109,27 +109,44 @@ class Dashboard extends Component {
     this.setState({currLevel: levelData});
   }
   NumChartsCallback = (num) => {
-
-    this.setState({NumCharts: num});
-  }
-  componentDidUpdate(){
-  
+    this.setState({
+      NumCharts: num,
+  });
 
   }
+
   render () {
+    let newArray =Array.from({ length: this.state.NumCharts }, (v, i) => i)
     return (
       <div className="Dashboard">
         <NavBar />
         <h1 style={{marginTop: "3%"}}> Dashboard </h1>
         <div id="allContentDash">
-          <div id="filterBox">
-            <Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
-            <Dropdown type="Company" callback={this.companyCallback} opts={this.state.companies} />
-            <Dropdown type="Level" callback={this.levelCallback} opts={this.state.levels} />
-          </div>
-          <div id="chartBox">
-            <Chart company={this.state.currCompany} level={this.state.currLevel} />
-          </div>
+            <div>
+              <Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
+            </div>
+          
+            {newArray.map(num =>
+            <>
+              <FullChart ddopts = {this.state.companies}/>
+            {/*
+            <Row>
+              <Col>
+                <div id="filterBox">
+                <Dropdown type="Company" callback={this.companyCallback} opts={this.state.companies} />
+                <Dropdown type="Level" callback={this.levelCallback} opts={this.state.levels} />
+                </div>
+              </Col>
+              <Col>
+            <div id="chartBox">
+              <Chart company={this.state.currCompany} level={this.state.currLevel} />
+            </div>
+            </Col>
+            </Row>*/}
+            
+
+            </>)} 
+  
         </div>
       </div>
       )
