@@ -1,15 +1,47 @@
+const models = require('./models/index');
+const connectDb = require ('./models/connectdb');
+const express = require ('express');
 const createError = require('http-errors');
-const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const db = require('./db');
-
 const indexRouter = require('./routes/navigation');
-// const usersRouter = require('./routes/users');
 const cors = require("cors");
-
 const app = express();
+const fs = require('fs');
+
+const eraseDatabaseOnSync = true;
+
+connectDb().then(async () => {
+  if (eraseDatabaseOnSync) {
+    await Promise.all([
+      models.User.deleteMany({}),
+      models.Message.deleteMany({}),
+    ]);
+  }
+
+  seedAveragesDatabase();
+
+  app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port ${process.env.PORT}!`),
+  );
+});
+
+
+const seedAveragesDatabase = async () => {
+  let data= fs.readFileSync('./mongo-test-scripts/averagesTestData.json', 'utf8');
+  console.log(data);
+  data = JSON.parse(data);
+  let tempData;
+  for (let i = 0; i < data.length; i++) {
+    console.log(data[i]);
+    tempData = new models.Averages(data[i]);
+    await tempData.save(function(err, tempData){
+      if (err) return console.error(err);
+      console.log(tempData.companyName + " saved ");
+    })
+  }
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
