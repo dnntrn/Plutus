@@ -84,18 +84,32 @@ router.get('/recommendations', function(req, res, next) {
 
   console.log(jobRole)
 
+  let matchArr = [
+    { "match": { "Position": jobRole }},
+    { "match": { "JobLevel": jobLevel }},
+  ]
+
+  if (city) {
+    matchArr.push({ "match": { "city": city }})
+  }
+
+  if (state) {
+    matchArr.push({ "match": { "state": state }})
+  }
+
+  if (keywords) {
+    matchArr.push({ "match": { "CompanyDescription": keywords }})
+  }
+
   esClient.search({
       index: 'company-review',
       body: {
+        "sort" : [
+              "_score"
+          ],
           query: {
             "bool" : {
-                  "must": [
-                    { "match": { "Position": jobRole }},
-                    { "match": { "JobLevel": jobLevel }},
-                    { "match": { "city": city }},
-                    { "match": { "state": state }},
-                    { "match": { "CompanyDescription": keywords }},
-                  ],
+                  "must": matchArr,
                   "filter": [
                       { "range": { "salary": { "gte": minSalary }}}
                     ]

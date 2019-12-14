@@ -47,14 +47,33 @@ class Recommendations extends Component {
 
       console.log(formData)
 
-      const jobRoleArr = formData.jobRole.split(" ");
-      const jobRole = jobRoleArr[0] + "+" + jobRoleArr[1]
+      const jobRole = formData.jobRole
 
-      const locationArr = formData.location.split(", ");
-      const city = locationArr[0]
-      const state = locationArr[1]
+      let city
+      let state
+      if (formData.location.length > 0) {
+        const locationArr = formData.location.split(", ");
+        city = locationArr[0]
+        state = locationArr[1]
+      } else {
+        city = formData.location
+        state = formData.location
+      }
 
-      const queryString = "/recommendations/?jobLevel=" + formData.jobLevel + "&minSalary=" + formData.minSalary + "&keywords=" + formData.keywords + "&jobRole=" + jobRole + "&city=" + city + "&state=" + state
+
+      let queryString = "/recommendations/?jobLevel=" + formData.jobLevel + "&minSalary=" + formData.minSalary  + "&jobRole=" + jobRole
+
+      if (city.length > 0) {
+        queryString = queryString + "&city=" + city
+      }
+
+      if (state.length > 0) {
+        queryString = queryString + "&state=" + state
+      }
+
+      if (formData.keywords.length > 0) {
+        queryString = queryString + "&keywords=" + formData.keywords
+      }
 
       console.log(queryString)
 
