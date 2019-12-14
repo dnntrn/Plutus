@@ -12,20 +12,21 @@ const fs = require('fs');
 
 const eraseDatabaseOnSync = true;
 
-connectDb().then(async () => {
-  if (eraseDatabaseOnSync) {
-    await Promise.all([
-      models.User.deleteMany({}),
-      models.Message.deleteMany({}),
-    ]);
-  }
-
-  seedAveragesDatabase();
-
-  app.listen(process.env.PORT, () =>
-    console.log(`Example app listening on port ${process.env.PORT}!`),
-  );
-});
+//uncomment LATER when mongo DB is setup
+// connectDb().then(async () => {
+//   if (eraseDatabaseOnSync) {
+//     await Promise.all([
+//       models.User.deleteMany({}),
+//       models.Message.deleteMany({}),
+//     ]);
+//   }
+//
+//   seedAveragesDatabase();
+//
+//   app.listen(process.env.PORT, () =>
+//     console.log(`Example app listening on port ${process.env.PORT}!`),
+//   );
+// });
 
 
 const seedAveragesDatabase = async () => {
