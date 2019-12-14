@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const filterData = require('../controllers/dashboard');
 const esClient = require('../../elasticsearch/elasticClient.js');
+const models = require('../models/index');
+const { Entry, Averages } = models;
 
 
 /* GET home page. */
@@ -9,8 +11,33 @@ router.get('/', function(req, res, next) {
   res.send("API is connected to frontend");
 });
 
-router.get('/dashboard', function(req, res, next) {
-  res.send("Dashboard is working.");
+router.get('/dashboard', function(req, res) {
+  const { companyName, positionTitle, positionLevel } = req.query;
+
+  const query = {
+    positionTitle: positionTitle,
+  }
+
+  if (companyName.length > 0) {
+    query.companyName = companyName;
+  }
+
+  if (positionLevel.length > 0) {
+    query.positionLevel = positionLevel;
+  }
+
+  Averages.find({}, function(err, varToStoreResult) {
+    if (err){
+      console.log(err);
+    } else{
+      console.log(varToStoreResult)
+      res.json(varToStoreResult);
+    }
+  });
+
+  console.log("nada")
+  res.json({});
+
 });
 
 router.post('/addASalary', function(req, res, next) {
