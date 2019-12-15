@@ -47,7 +47,7 @@ class FullChart extends Component {
               <Col>
                 <div id="filterBox">
                 <Dropdown type="Company" callback={this.companyCallback} opts={this.props.ddopts} />
-                <Dropdown type="Level" callback={this.levelCallback} opts={this.props.ddopts} />
+                <Dropdown type="Level" callback={this.levelCallback} opts={this.props.levelsopts} />
                 </div>
               </Col>
               <Col>

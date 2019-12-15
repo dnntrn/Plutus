@@ -127,8 +127,10 @@ class Dashboard extends Component {
             </div>
           
             {newArray.map(num =>
-            <>
-              <FullChart ddopts = {this.state.companies}/>
+            <> 
+              <Row>
+              <FullChart ddopts = {this.state.companies} levelsopts = {this.state.levels}/>
+              </Row>
             {/*
             <Row>
               <Col>
