@@ -139,7 +139,7 @@ class Dashboard extends Component {
           </Container>
 
         </div>
-        <Footer style = {{paddingTop:"200px"}}/>
+        <Footer/>
       </div>
       )
   }
