@@ -12,37 +12,43 @@ const fs = require('fs');
 
 const eraseDatabaseOnSync = true;
 
-//uncomment LATER when mongo DB is setup
-// connectDb().then(async () => {
-//   if (eraseDatabaseOnSync) {
-//     await Promise.all([
-//       models.User.deleteMany({}),
-//       models.Message.deleteMany({}),
-//     ]);
+// uncomment LATER when mongo DB is setup
+connectDb().then(async () => {
+  // console.log(models.models.Entry);
+  // if (eraseDatabaseOnSync) {
+  //   await Promise.all([
+  //     models.models.Entry.Entry.deleteMany({}),
+  //     models.models.Averages.Averages.deleteMany({}),
+  //   ]);
+  // }
+
+  // seedAveragesDatabase();
+
+  app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port1!`),
+  );
+});
+
+//
+// const seedAveragesDatabase = async () => {
+//   let data= fs.readFileSync('./mongo-test-scripts/averagesTestData.json', 'utf8');
+//   console.log(data);
+//   data = JSON.parse(data);
+//   let tempData;
+//   for (let i = 0; i < data.length; i++) {
+//     console.log(data[i]);
+//     tempData = new models.models.Averages.Averages(data[i]);
+//     await tempData.save(function(err, tempData){
+//       if (err) return console.error(err);
+//       console.log(tempData.companyName + " saved ");
+//     })
+//
+//     tempData.on('es-indexed', (err, result) => {
+//         console.log('indexed to elastic search');
+//     });
+//
 //   }
-//
-//   seedAveragesDatabase();
-//
-//   app.listen(process.env.PORT, () =>
-//     console.log(`Example app listening on port ${process.env.PORT}!`),
-//   );
-// });
-
-
-const seedAveragesDatabase = async () => {
-  let data= fs.readFileSync('./mongo-test-scripts/averagesTestData.json', 'utf8');
-  console.log(data);
-  data = JSON.parse(data);
-  let tempData;
-  for (let i = 0; i < data.length; i++) {
-    console.log(data[i]);
-    tempData = new models.Averages(data[i]);
-    await tempData.save(function(err, tempData){
-      if (err) return console.error(err);
-      console.log(tempData.companyName + " saved ");
-    })
-  }
-};
+// };
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

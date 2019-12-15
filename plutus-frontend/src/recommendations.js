@@ -6,7 +6,8 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Footer from './components/Footer';
 
-import SearchResultBox from './components/SearchResultBox'
+import SearchReviewBox from './components/SearchReviewBox'
+import SearchRecommendationBox from './components/SearchRecommendationBox'
 
 
 class Recommendations extends Component {
@@ -20,7 +21,8 @@ class Recommendations extends Component {
       location:'',
       minSalary:0,
       keywords:'',
-      companyMatches:[],
+      companyReviewMatches: [],
+      companyRecommendationMatches: [],
       currJobLevel:null,
       currKeywords:null,
       currMinSalary:null,
@@ -85,9 +87,11 @@ class Recommendations extends Component {
         })
         .then(searchResponse => searchResponse.json())
         .then(data => {
-          console.log(data);
-          if (data.length > 0) {
-            this.setState({companyMatches: data})
+          console.log(data.hits.hits);
+          console.log(data.aggregations.group_by_company.buckets);
+          if (data.hits.hits.length > 0) {
+            this.setState({companyReviewMatches: data.hits.hits})
+            this.setState({companyRecommendationMatches: data.aggregations.group_by_company.buckets})
             console.log(data[0]._source.CompanyName)
           } else {
             this.setState({companyMatches: []})
@@ -102,8 +106,9 @@ class Recommendations extends Component {
 
 
   render () {
-    const { companyMatches } = this.state
-
+    const { companyReviewMatches, companyRecommendationMatches } = this.state
+    console.log(companyReviewMatches);
+    console.log(companyRecommendationMatches)
     return (
       <div className="Recommendations">
         <NavBar activeKey={3}/>
@@ -112,7 +117,7 @@ class Recommendations extends Component {
           <div id= "header">
             <h1>What companies Would be a fit for you?</h1>
           </div>
-           
+
           <div id= "searchBox">
             <h3>Search here:</h3>
             <Form>
@@ -166,10 +171,29 @@ class Recommendations extends Component {
 
           </div>
 
-          <div id= "resultContent">
+          <div id= "recommendationsContent">
+            <h2>Here are your company matches:</h2>
             <Row>
-            {companyMatches.map(listItem => 
-               <SearchResultBox style={{marginRight: "5%", marginBottom:"15px"}} companyName= {listItem._source.CompanyName} position = {listItem._source.Position}/>
+            {companyRecommendationMatches.map(listItem =>
+               <SearchRecommendationBox style={{marginRight: "5%", marginBottom:"15px"}} companyName= {listItem.key} match= {listItem.avg_score.value} avgSalary= {listItem.average_salary.value}/>
+            )}
+            </Row>
+
+          </div>
+
+          <div id= "reviewContent">
+            <h2>Here are all the reviews:</h2>
+            <Row>
+            {companyReviewMatches.map(listItem =>
+               <SearchReviewBox style={{marginRight: "5%", marginBottom:"15px"}}
+                companyName= {listItem._source.CompanyName}
+                position = {listItem._source.Position}
+                city={listItem._source.city}
+                state={listItem._source.state}
+                salary= {listItem._source.salary}
+                jobLevel={listItem._source.JobLevel}
+                review={listItem._source.CompanyDescription}
+                />
             )}
             </Row>
 

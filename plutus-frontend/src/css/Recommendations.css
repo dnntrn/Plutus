@@ -38,8 +38,8 @@
   color: white;
 }
 
-#resultContent {
-  display:flex;
+#reviewContent, recommendationsContent {
+  /* display:flex; */
 }
 
 body {
