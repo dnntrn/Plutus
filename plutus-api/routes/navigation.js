@@ -188,9 +188,6 @@ router.get('/recommendations', function(req, res, next) {
   esClient.search({
       index: 'company-review',
       body: {
-        "sort" : [
-            "_score"
-        ],
         query: {
           "bool" : {
                 "must": matchArr,
@@ -203,10 +200,17 @@ router.get('/recommendations', function(req, res, next) {
           "group_by_company": {
             "terms": {
               "field": "CompanyName",
+              "order": {"avg_score": "desc"}
             },
 
             "aggs": {
-                "averages": {
+                "avg_score": {
+                  "avg": {
+                    "script": "_score",
+                  },
+                },
+
+                "average_salary": {
                   "avg": {
                     "field": "salary",
                   },
