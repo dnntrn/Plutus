@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import SearchResultBox from './components/SearchResultBox'
 
+
 class Recommendations extends Component {
   constructor(props) {
     super(props);
