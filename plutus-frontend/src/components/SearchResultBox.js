@@ -8,10 +8,9 @@ class SearchResultBox extends Component {
 	}
 
 	render() {
-		const { companyName, style } = this.props
-
+		const { companyName, style,position } = this.props
 		return (
-			<Card bg="light" style={{ width: '18rem' }, this.props.style}>
+			<Card bg="light" style={{ width: '18rem', padding:'10px' }, this.props.style}>
 			  <Card.Body>
 			    <Card.Title>{companyName}</Card.Title>
 			    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
@@ -26,3 +25,5 @@ class SearchResultBox extends Component {
 }
 
 export default SearchResultBox
+
+

@@ -3,7 +3,7 @@ import './css/Dashboard.css';
 import Dropdown from './components/Dropdown.js';
 import NavBar from './components/NavBar.js';
 import Chart from './components/Chart.js';
-import {Row,Col} from 'react-bootstrap';
+import {Row,Col, Container,Card,CardGroup} from 'react-bootstrap';
 import FullChart from './components/FullChart'
 class Dashboard extends Component {
   constructor(props) {
@@ -122,33 +122,23 @@ class Dashboard extends Component {
         <NavBar />
         <h1 style={{marginTop: "3%"}}> Dashboard </h1>
         <div id="allContentDash">
-            <div>
-              <Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
-            </div>
-          
+          <Container>
+          <Row>
+            <Col><Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/></Col>
+          </Row>
+ 
+          <Row>
             {newArray.map(num =>
-            <> 
-              <Row>
-              <FullChart ddopts = {this.state.companies} levelsopts = {this.state.levels}/>
-              </Row>
-            {/*
-            <Row>
-              <Col>
-                <div id="filterBox">
-                <Dropdown type="Company" callback={this.companyCallback} opts={this.state.companies} />
-                <Dropdown type="Level" callback={this.levelCallback} opts={this.state.levels} />
-                </div>
-              </Col>
-              <Col>
-            <div id="chartBox">
-              <Chart company={this.state.currCompany} level={this.state.currLevel} />
-            </div>
-            </Col>
-            </Row>*/}
-            
+              <> <Col  xs="6">
+                  <FullChart ddopts = {this.state.companies} levelsopts = {this.state.levels}/>
+                </Col>
+            </>)}
+          </Row>
 
-            </>)} 
   
+          </Container>
+
+
         </div>
       </div>
       )

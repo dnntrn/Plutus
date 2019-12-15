@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Dropdown from './Dropdown.js';
 import Chart from './Chart.js';
-import {Row,Col} from 'react-bootstrap';
+import {Row,Col,Card} from 'react-bootstrap';
 
 class FullChart extends Component {
     constructor(props){
@@ -43,19 +43,15 @@ class FullChart extends Component {
     render() { 
         return ( 
             <div>
-            <Row>
+           
               <Col>
-                <div id="filterBox">
                 <Dropdown type="Company" callback={this.companyCallback} opts={this.props.ddopts} />
                 <Dropdown type="Level" callback={this.levelCallback} opts={this.props.levelsopts} />
-                </div>
               </Col>
               <Col>
-            <div id="chartBox">
               <Chart company={this.state.currCompany} level={this.state.currLevel} />
-            </div>
-            </Col>
-            </Row>
+              </Col>
+    
 
             </div>
            

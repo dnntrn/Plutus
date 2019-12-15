@@ -4,6 +4,9 @@ import './css/Recommendations.css';
 import NavBar from './components/NavBar'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 import SearchResultBox from './components/SearchResultBox'
 
 
@@ -110,7 +113,7 @@ class Recommendations extends Component {
           <div id= "header">
             <h1>What companies Would be a fit for you?</h1>
           </div>
-
+           
           <div id= "searchBox">
             <h3>Search here:</h3>
             <Form>
@@ -165,10 +168,12 @@ class Recommendations extends Component {
           </div>
 
           <div id= "resultContent">
-            {companyMatches.map( (listItem) => {
-              return <SearchResultBox style={{marginRight: "5%"}} companyName= {listItem._source.CompanyName}/>
-            }
+            <Row>
+            {companyMatches.map(listItem => 
+               <SearchResultBox style={{marginRight: "5%", marginBottom:"15px"}} companyName= {listItem._source.CompanyName} position = {listItem._source.Position}/>
             )}
+            </Row>
+
           </div>
         </div>
       </div>
