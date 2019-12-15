@@ -222,7 +222,7 @@ router.get('/recommendations', function(req, res, next) {
       }
   }
   ).then(function(resp) {
-      res.json(resp.hits.hits);
+      res.json(resp);
   }, function(err) {
       console.trace(err.message);
   }).catch(function(err){
