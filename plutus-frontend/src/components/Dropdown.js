@@ -13,20 +13,34 @@ class Dropdown extends Component {
 	    };
 
 	    var uniqueCompanies = [];
-	    
+		var uniqueCompaniesDisplayNames = [];
+
 	    var uniquePositions =[];
+		var uniquePositionsDisplayNames = [];
 
-	    for (var i in jsonData) {
-	      var jsonEntry = jsonData[i];
-	      if (!uniqueCompanies.includes(jsonEntry.companyName)) {
-	        uniqueCompanies.push(jsonEntry.companyName);
-	      }
-
-	      if (!uniquePositions.includes(jsonEntry.positionTitle)) {
-	        uniquePositions.push(jsonEntry.positionTitle);
-	      }
-
-	    }
+		for (var i in jsonData) {
+			var jsonEntry = jsonData[i];
+			if (!uniqueCompanies.includes(jsonEntry.companyName)) {
+			  var companyNameSplit = jsonEntry.companyName.split(/(?=[A-Z])/);
+			  companyNameSplit[0] = companyNameSplit[0].charAt(0).toUpperCase() + companyNameSplit[0].substring(1);
+	   
+			  var companyDisplayName = companyNameSplit.join(" ");
+			  uniqueCompaniesDisplayNames.push(companyDisplayName);
+	   
+			  uniqueCompanies.push(jsonEntry.companyName);
+	   
+		}
+		if (!uniquePositions.includes(jsonEntry.positionTitle)) {
+			var positionNameSplit = jsonEntry.positionTitle.split(/(?=[A-Z])/);
+			positionNameSplit[0] = positionNameSplit[0].charAt(0).toUpperCase() + positionNameSplit[0].substring(1);
+	  
+			var positionDisplayName = positionNameSplit.join(" ");
+			uniquePositionsDisplayNames.push(positionDisplayName);
+	  
+			 uniquePositions.push(jsonEntry.positionTitle);
+		   }
+	  
+		 }
 
 
 	    var companyOpts = [];
@@ -34,39 +48,42 @@ class Dropdown extends Component {
 	    var positionOpts = [];
 	    positionOpts.push(blankItem);
 
-	    for (var i in uniqueCompanies) {
-	      var company = uniqueCompanies[i];
-	      var item = {
-	        id:i,
-	        value:company
-	      };
-	      companyOpts.push(item);
-
-	    }
-
-	    for (var i in uniquePositions) {
-	      var position = uniquePositions[i];
-	      var item = {
-	        id:i,
-	        value:position
-	      };
-	      positionOpts.push(item);
-
-	    }
-
+		for (var i in uniqueCompanies) {
+			var company = uniqueCompanies[i];
+			var item = {
+			  id:i,
+			  value:company,
+			  displayName:uniqueCompaniesDisplayNames[i]
+			};
+			companyOpts.push(item);
+	   
+		  }
+	   
+		  for (var i in uniquePositions) {
+			var position = uniquePositions[i];
+			var item = {
+			  id:i,
+			  value:position,
+			  displayName:uniquePositionsDisplayNames[i]
+			};
+			positionOpts.push(item);
+	   
+		  }
 	    this.state = {
 	    	opts: []
 	    };
 
 	    if (this.props.type == "Company") {
 	    	this.state = {
-	    		opts: companyOpts
+				opts: companyOpts,
+				name:"Company"
 	    	};
 	    }
 
 	    if (this.props.type == "Position") {
 	    	this.state = {
-	    		opts: positionOpts
+				opts: positionOpts,
+				name:"Position"
 	    	};
 	    }
 
@@ -75,19 +92,26 @@ class Dropdown extends Component {
 	    		opts: [
 				      {
 				        id:1,
-				        value: "1"
+						value: "1",
+						displayName:"1"
 				      },
 				      {
 				        id:2,
-				        value: "2"
+						value: "2",
+						displayName:"2"
+
 				      },
 				      {
 				        id:3,
-				        value: "3"
+						value: "3",
+						displayName:"3"
+
 				      },
 				      {
 				        id:4,
-				        value: "4"
+						value: "4",
+						displayName:"4"
+
 				      },
 				      ]
 	    	};
@@ -112,10 +136,10 @@ class Dropdown extends Component {
 	render() {
 		return (
 			<div>
-			<p><b> {this.props.type} </b></p>
+			<p><b> {this.state.name} </b></p>
 			<select onChange={(e) => this.handleChange(e)}>
 			{this.state.opts.map((opt) => (
-    				<option className={opt.value} value={opt.value}> {opt.value} </option>
+    				<option className={opt.value} value={opt.value}> {opt.displayName} </option>
     		))}
 			</select>
 
