@@ -128,7 +128,7 @@ class Chart extends Component {
 	}
 
 	render() {
-		var levelLabels = ["entryLevel", "midLevel", "seniorLevel"];
+		var levelLabels = ["Entry Level", "Mid Level", "Senior Level"];
 
 		var entrySum = 0.0;
 		var entryCount = 0;
