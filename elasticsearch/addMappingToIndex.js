@@ -1,9 +1,8 @@
 const esClient = require('./elasticClient');
-const addmappingToIndex = async function(indexName, mappingType, mapping){
+const addmappingToIndex = async function(indexName, mapping){
     console.log(mapping);
     return await esClient.indices.putMapping({
         index: indexName,
-        type: mappingType,
         body: mapping
     });
 }
@@ -15,23 +14,36 @@ module.exports = addmappingToIndex;
 async function test(){
     const mapping = {
         properties: {
-            title: {
+            CompanyName: {
+                type: "text",
+                "fielddata": true,
+            },
+            Position: {
+                type: "text",
+                "fielddata": true,
+            },
+            JobLevel: {
+                type: "text",
+                "fielddata": true,
+            },
+            salary: {
+                type: "long",
+            },
+            city: {
+                type: "text",
+                "fielddata": true,
+            },
+            state: {
+                type: "text",
+                "fielddata": true,
+            },
+            CompanyDescription: {
                 type: "text"
             },
-            // tags: {
-            //     type: "keyword"
-            // },
-            // body: {
-            //     type: "text"
-            // },
-            // timestamp: {
-            //     type: "date",
-            //     format: "epoch_millis"
-            // }
         }
     }
     try {
-        const resp = await addmappingToIndex('blog', 'ciphertrick', mapping);
+        const resp = await addmappingToIndex('company-review', mapping);
         console.log(resp);
     } catch (e) {
         console.log(e);

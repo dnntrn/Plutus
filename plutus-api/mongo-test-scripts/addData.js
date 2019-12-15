@@ -16,6 +16,10 @@ function addData () {
       console.log(tempData.companyName + " saved ");
     })
 
+    tempData.on('es-indexed', (err, result) => {
+        console.log('indexed to elastic search');
+    });
+
   }
 }
 
