@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './resources/logo.svg';
 import './css/Recommendations.css';
 import NavBar from './components/NavBar'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Footer from './components/Footer';
 
 import SearchResultBox from './components/SearchResultBox'
 
@@ -21,7 +20,7 @@ class Recommendations extends Component {
       location:'',
       minSalary:0,
       keywords:'',
-      companyMatches: [],
+      companyMatches:[],
       currJobLevel:null,
       currKeywords:null,
       currMinSalary:null,
@@ -108,7 +107,7 @@ class Recommendations extends Component {
     return (
       <div className="Recommendations">
         <NavBar activeKey={3}/>
-
+        <div>
         <div id="allContent">
           <div id= "header">
             <h1>What companies Would be a fit for you?</h1>
@@ -160,7 +159,7 @@ class Recommendations extends Component {
                 </Form.Text>
               </Form.Group>
 
-              <Button variant="primary" type="submit" onClick={(e) => this.onSubmit(e)}>
+              <Button style = {{backgroundColor:"crimson", borderColor:"crimson"}} variant="primary" type="submit" onClick={(e) => this.onSubmit(e)}>
                 Search
               </Button>
             </Form>
@@ -176,7 +175,12 @@ class Recommendations extends Component {
 
           </div>
         </div>
+
+        <Footer style = {{ position: "absolute",
+        bottom: "0"}}/>
+        </div>
       </div>
+
     );
   }
 

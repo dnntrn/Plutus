@@ -116,7 +116,7 @@ class Chart extends Component {
 					    xAxes: [{
 					      scaleLabel: {
 					        display: true,
-					        labelString: 'Month'
+					        labelString: 'Position'
 					      }
 					    }],
 					  }     
@@ -174,7 +174,8 @@ class Chart extends Component {
 			datasets: [{
 				label: "Salary",
 				data: aveData
-			}]
+			}],
+	
 		};
 		// <p> Company inside the chart: {this.props.company} </p>
 		// <p> Level inside the chart: {this.props.level} </p>

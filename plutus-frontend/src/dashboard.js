@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './css/Dashboard.css';
 import Dropdown from './components/Dropdown.js';
 import NavBar from './components/NavBar.js';
-import Chart from './components/Chart.js';
+import Footer from './components/Footer';
 import {Row,Col, Container,Card,CardGroup} from 'react-bootstrap';
 import FullChart from './components/FullChart'
 class Dashboard extends Component {
@@ -124,7 +124,7 @@ class Dashboard extends Component {
         <div id="allContentDash">
           <Container>
           <Row>
-            <Col><Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/></Col>
+            <Col><Dropdown name ="Number of Charts" type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/></Col>
           </Row>
  
           <Row>
@@ -138,8 +138,8 @@ class Dashboard extends Component {
   
           </Container>
 
-
         </div>
+        <Footer style = {{paddingTop:"200px"}}/>
       </div>
       )
   }

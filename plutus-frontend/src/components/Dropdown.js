@@ -112,7 +112,7 @@ class Dropdown extends Component {
 	render() {
 		return (
 			<div>
-			<p><b> {this.props.type} </b></p>
+			<p><b> {this.props.name} </b></p>
 			<select onChange={(e) => this.handleChange(e)}>
 			{this.state.opts.map((opt) => (
     				<option className={opt.value} value={opt.value}> {opt.value} </option>

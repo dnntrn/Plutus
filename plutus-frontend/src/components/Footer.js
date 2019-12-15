@@ -11,7 +11,7 @@ class Footer extends Component {
                         <Container>
                             <NavbarBrand>Plutus</NavbarBrand>
                             <NavbarBrand>Contact us @ (212) 998-1212</NavbarBrand>
-                            <NavbarBrand>You Deserve The World Baby</NavbarBrand>
+                            <NavbarBrand>Everyday is a New Day</NavbarBrand>
 
                         </Container>
                     </Navbar>
