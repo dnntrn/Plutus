@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import {Line, Bar} from 'react-chartjs-2';
 
+import jsonData from '../averagesTestData.json';
+
 
 class Chart extends Component {
 	constructor(props) {
@@ -109,7 +111,7 @@ class Chart extends Component {
 					        display: true,
 					        labelString: 'Average Salary'
 					      },
-					      ticks: {min:0,}
+					      ticks: {min:0,max:500000}
 					    }],
 					    xAxes: [{
 					      scaleLabel: {
@@ -126,30 +128,60 @@ class Chart extends Component {
 	}
 
 	render() {
-		let working_set = this.state.dummydata.default;
+		var levelLabels = ["entryLevel", "midLevel", "seniorLevel"];
 
-		if (this.props.company == "Microsoft") {
-			working_set = this.state.dummydata.Microsoft
-		}
-		if (this.props.company == "Google") {
-			working_set = this.state.dummydata.Google
-		}
-		if (this.props.company == "Facebook") {
-			working_set = this.state.dummydata.Facebook
-		}
-		if (this.props.company == "Amazon") {
-			working_set = this.state.dummydata.Amazon
-		}
-		if (this.props.company == "Lyft") {
-			working_set = this.state.dummydata.Lyft
+		var entrySum = 0.0;
+		var entryCount = 0;
+		var midSum = 0.0;
+		var midCount = 0;
+		var seniorSum = 0.0;
+		var seniorCount = 0;
+
+
+		for (var i in jsonData) {
+			var thisEntry = jsonData[i];
+			if (thisEntry.companyName == this.props.company) {
+				if (thisEntry.positionTitle == this.props.level) {
+					if (thisEntry.positionLevel == "entryLevel") {
+						entrySum += thisEntry.averageSalary;
+						entryCount++;
+					}
+					else if (thisEntry.positionLevel == "midLevel") {
+						midSum += thisEntry.averageSalary;
+						midCount++;
+					}
+					else if (thisEntry.positionLevel == "seniorLevel") {
+						seniorSum += thisEntry.averageSalary;
+						seniorCount++;
+					}
+				}
+			}
 		}
 
+
+		var aveEntry = entrySum / entryCount;
+		var aveMid = midSum / midCount;
+		var aveSenior = seniorSum / seniorCount;
+
+		console.log(entrySum);
+		console.log(entryCount);
+
+
+		var aveData  = [aveEntry, aveMid, aveSenior];
+
+		var working_set = {
+			labels: levelLabels,
+			datasets: [{
+				label: "Salary",
+				data: aveData
+			}]
+		};
 		// <p> Company inside the chart: {this.props.company} </p>
 		// <p> Level inside the chart: {this.props.level} </p>
 		// <p> Test {this.state.temp} </p>
 		return (
 			<div className="chart">
-				<Line data={working_set} options={this.state.dummydata.options}/>
+				<Bar data={working_set} options={this.state.dummydata.options}/>
 			</div>
 
 		);

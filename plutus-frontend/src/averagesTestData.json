@@ -1,0 +1,602 @@
+[
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 264689
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 338933
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "productDesigner",
+    "positionLevel": "entryLevel",
+    "averageSalary": 418885
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "entryLevel",
+    "averageSalary": 343080
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 276287
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 386649
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "productDesigner",
+    "positionLevel": "entryLevel",
+    "averageSalary": 334684
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "dataScientist",
+    "positionLevel": "midLevel",
+    "averageSalary": 147248
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "entryLevel",
+    "averageSalary": 199049
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 415024
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "dataScientist",
+    "positionLevel": "midLevel",
+    "averageSalary": 317631
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 457444
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 394879
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 405442
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 466874
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "entryLevel",
+    "averageSalary": 199753
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 266558
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 478187
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 350721
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 431761
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "productDesigner",
+    "positionLevel": "entryLevel",
+    "averageSalary": 406130
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 481991
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 113020
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 293134
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 155380
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "entryLevel",
+    "averageSalary": 152080
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "midLevel",
+    "averageSalary": 206038
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 447722
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 111606
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "entryLevel",
+    "averageSalary": 483277
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 448778
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 360189
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 174149
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "productDesigner",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 351751
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 91125
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "entryLevel",
+    "averageSalary": 327034
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "entryLevel",
+    "averageSalary": 313244
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "midLevel",
+    "averageSalary": 279254
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 93232
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 197022
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 481247
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 257145
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "entryLevel",
+    "averageSalary": 229300
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 281176
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 118247
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "midLevel",
+    "averageSalary": 229067
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 294242
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "entryLevel",
+    "averageSalary": 279878
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 402595
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 170604
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "productDesigner",
+    "positionLevel": "entryLevel",
+    "averageSalary": 211907
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "dataScientist",
+    "positionLevel": "entryLevel",
+    "averageSalary": 438212
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "dataScientist",
+    "positionLevel": "entryLevel",
+    "averageSalary": 289311
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "dataScientist",
+    "positionLevel": "entryLevel",
+    "averageSalary": 155362
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 475649
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 451880
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 435552
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 159974
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "midLevel",
+    "averageSalary": 301968
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "dataScientist",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 158282
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 327227
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 119319
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "entryLevel",
+    "averageSalary": 355322
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "entryLevel",
+    "averageSalary": 284336
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 393122
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "entryLevel",
+    "averageSalary": 461710
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 153788
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 140743
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "dataScientist",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 230678
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 291868
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 273253
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "midLevel",
+    "averageSalary": 111569
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "midLevel",
+    "averageSalary": 351964
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "dataScientist",
+    "positionLevel": "entryLevel",
+    "averageSalary": 340476
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 85492
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 255931
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "dataScientist",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 89910
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 319795
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 435162
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 102045
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 415676
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "dataScientist",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 112766
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 146470
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "dataScientist",
+    "positionLevel": "midLevel",
+    "averageSalary": 414119
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 306444
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 83245
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 104914
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 117090
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "midLevel",
+    "averageSalary": 150066
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "productDesigner",
+    "positionLevel": "entryLevel",
+    "averageSalary": 370163
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "productDesigner",
+    "positionLevel": "midLevel",
+    "averageSalary": 498735
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "dataScientist",
+    "positionLevel": "midLevel",
+    "averageSalary": 226502
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "dataScientist",
+    "positionLevel": "entryLevel",
+    "averageSalary": 222146
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "productDesigner",
+    "positionLevel": "seniorLevel",
+    "averageSalary": 398644
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "midLevel",
+    "averageSalary": 388149
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "productDesigner",
+    "positionLevel": "entryLevel",
+    "averageSalary": 316720
+  },
+  {
+    "companyName": "Facebook",
+    "positionTitle": "productDesigner",
+    "positionLevel": "entryLevel",
+    "averageSalary": 147175
+  },
+  {
+    "companyName": "Amazon",
+    "positionTitle": "softwareEngineer",
+    "positionLevel": "entryLevel",
+    "averageSalary": 330518
+  },
+  {
+    "companyName": "Microsoft",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "entryLevel",
+    "averageSalary": 353550
+  },
+  {
+    "companyName": "Google",
+    "positionTitle": "engineeringManager",
+    "positionLevel": "midLevel",
+    "averageSalary": 459288
+  }
+]
