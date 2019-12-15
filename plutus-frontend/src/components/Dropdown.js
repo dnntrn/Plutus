@@ -75,13 +75,15 @@ class Dropdown extends Component {
 
 	    if (this.props.type == "Company") {
 	    	this.state = {
-	    		opts: companyOpts
+				opts: companyOpts,
+				name:"Company"
 	    	};
 	    }
 
 	    if (this.props.type == "Position") {
 	    	this.state = {
-	    		opts: positionOpts
+				opts: positionOpts,
+				name:"Position"
 	    	};
 	    }
 
@@ -134,7 +136,7 @@ class Dropdown extends Component {
 	render() {
 		return (
 			<div>
-			<p><b> {this.props.name} </b></p>
+			<p><b> {this.state.name} </b></p>
 			<select onChange={(e) => this.handleChange(e)}>
 			{this.state.opts.map((opt) => (
     				<option className={opt.value} value={opt.value}> {opt.displayName} </option>
