@@ -3,9 +3,7 @@ const router = express.Router();
 const filterData = require('../controllers/dashboard');
 const esClient = require('../../elasticsearch/elasticClient.js');
 const models = require('../models/index');
-const { Entry, Averages } = models;
-
-
+const Entry = models.models.Entry.Entry;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.send("API is connected to frontend");
@@ -60,6 +58,34 @@ router.post('/addASalary', function(req, res, next) {
   const uuidv4 = require('uuid/v4');
 
   console.log(req.body)
+
+  const tempEntryObj = new Entry({
+      "companyName": companyName,
+      "positionTitle": positionTitle,
+      "positionLevel": positionLevel,
+      "hireYear": hireYear,
+      "companyDescription": experience,
+      "city": city,
+      "state": state,
+      "salary": salary,
+      "degreeLevel": degreeLevel,
+  });
+
+
+  tempEntryObj.save(function(err){
+    if (err) {
+      console.log(err);
+    }
+    console.log(" saved ");
+  })
+
+  tempEntryObj.on('es-indexed', (err, result) => {
+      console.log(result);
+      console.log('indexed to elastic search');
+  });
+
+
+
   esClient.index({
       index: 'company-review',
       id: uuidv4(),
@@ -101,24 +127,102 @@ router.get('/recommendations', function(req, res, next) {
     matchArr.push({ "match": { "CompanyDescription": keywords }})
   }
 
+
+  // const queryE = {
+  //       "bool" : {
+  //             "must": matchArr,
+  //             "filter": [
+  //                 { "range": { "salary": { "gte": minSalary }}}
+  //               ]
+  //         },
+  // }
+
+
+  // Entry.search(queryE, function(err, entries) {
+  //   if (err) {
+  //       console.log(err)
+  //   } else {
+  //     var results = entries.hits.hits;
+  //     console.log(entries);
+  //     res.json(entries.hits.hits);
+  //     //work with your hits
+  //   }
+  //
+  //
+  // })
+
+  // models.models.Entry.Entry.search({
+  //     index: 'entrys',
+  //     body: {
+  //       "sort" : [
+  //           "_score"
+  //       ],
+  //       query: {
+  //         "bool" : {
+  //               "must": matchArr,
+  //               "filter": [
+  //                   { "range": { "salary": { "gte": minSalary }}}
+  //                 ]
+  //           },
+  //       },
+  //     "aggs": {
+  //         "group_by_company": {
+  //           "terms": {
+  //             "field": "CompanyName",
+  //           },
+  //
+  //           "aggs": {
+  //               "averages": {
+  //                 "avg": {
+  //                   "field": "salary",
+  //                 },
+  //               },
+  //             },
+  //         },
+  //
+  //       },
+  //     }
+  // }
+
+
   esClient.search({
       index: 'company-review',
       body: {
-        "sort" : [
-              "_score"
-          ],
-          query: {
-            "bool" : {
-                  "must": matchArr,
-                  "filter": [
-                      { "range": { "salary": { "gte": minSalary }}}
-                    ]
-              },
+        query: {
+          "bool" : {
+                "must": matchArr,
+                "filter": [
+                    { "range": { "salary": { "gte": minSalary }}}
+                  ]
+            },
+        },
+      "aggs": {
+          "group_by_company": {
+            "terms": {
+              "field": "CompanyName",
+              "order": {"avg_score": "desc"}
+            },
 
-          }
+            "aggs": {
+                "avg_score": {
+                  "avg": {
+                    "script": "_score",
+                  },
+                },
+
+                "average_salary": {
+                  "avg": {
+                    "field": "salary",
+                  },
+                },
+              },
+          },
+
+        },
       }
-  }).then(function(resp) {
-      res.json(resp.hits.hits);
+  }
+  ).then(function(resp) {
+      res.json(resp);
   }, function(err) {
       console.trace(err.message);
   }).catch(function(err){
