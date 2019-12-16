@@ -15,17 +15,7 @@ class Dropdown extends Component {
 	    var uniqueCompanies = [];
 	    var uniquePositions =[];
 
-	    for (var i in jsonData) {
-	      var jsonEntry = jsonData[i];
-	      if (!uniqueCompanies.includes(jsonEntry.companyName)) {
-	        uniqueCompanies.push(jsonEntry.companyName);
-	      }
-
-	      if (!uniquePositions.includes(jsonEntry.positionTitle)) {
-	        uniquePositions.push(jsonEntry.positionTitle);
-	      }
-
-	    var uniquePositions =[];
+	    
 		var uniquePositionsDisplayNames = [];
 		var uniqueCompaniesDisplayNames = [];
 
@@ -132,7 +122,7 @@ class Dropdown extends Component {
 	    console.log(this.state.opts);
 
 	}
-}
+
 
 
 	doCallback(a){
