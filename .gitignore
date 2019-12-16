@@ -1,1 +1,5 @@
+node_modules
+lsa-plutus.pem
+plutus-api/node_modules
+plutus-frontend/node_modules
 .DS_Store

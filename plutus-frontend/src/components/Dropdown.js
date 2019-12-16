@@ -13,7 +13,18 @@ class Dropdown extends Component {
 	    };
 
 	    var uniqueCompanies = [];
-		var uniqueCompaniesDisplayNames = [];
+
+	    var uniquePositions =[];
+
+	    for (var i in jsonData) {
+	      var jsonEntry = jsonData[i];
+	      if (!uniqueCompanies.includes(jsonEntry.companyName)) {
+	        uniqueCompanies.push(jsonEntry.companyName);
+	      }
+
+	      if (!uniquePositions.includes(jsonEntry.positionTitle)) {
+	        uniquePositions.push(jsonEntry.positionTitle);
+	      }
 
 	    var uniquePositions =[];
 		var uniquePositionsDisplayNames = [];
@@ -23,23 +34,23 @@ class Dropdown extends Component {
 			if (!uniqueCompanies.includes(jsonEntry.companyName)) {
 			  var companyNameSplit = jsonEntry.companyName.split(/(?=[A-Z])/);
 			  companyNameSplit[0] = companyNameSplit[0].charAt(0).toUpperCase() + companyNameSplit[0].substring(1);
-	   
+
 			  var companyDisplayName = companyNameSplit.join(" ");
 			  uniqueCompaniesDisplayNames.push(companyDisplayName);
-	   
+
 			  uniqueCompanies.push(jsonEntry.companyName);
-	   
+
 		}
 		if (!uniquePositions.includes(jsonEntry.positionTitle)) {
 			var positionNameSplit = jsonEntry.positionTitle.split(/(?=[A-Z])/);
 			positionNameSplit[0] = positionNameSplit[0].charAt(0).toUpperCase() + positionNameSplit[0].substring(1);
-	  
+
 			var positionDisplayName = positionNameSplit.join(" ");
 			uniquePositionsDisplayNames.push(positionDisplayName);
-	  
+
 			 uniquePositions.push(jsonEntry.positionTitle);
 		   }
-	  
+
 		 }
 
 
@@ -56,9 +67,9 @@ class Dropdown extends Component {
 			  displayName:uniqueCompaniesDisplayNames[i]
 			};
 			companyOpts.push(item);
-	   
+
 		  }
-	   
+
 		  for (var i in uniquePositions) {
 			var position = uniquePositions[i];
 			var item = {
@@ -67,7 +78,7 @@ class Dropdown extends Component {
 			  displayName:uniquePositionsDisplayNames[i]
 			};
 			positionOpts.push(item);
-	   
+
 		  }
 	    this.state = {
 	    	opts: []
@@ -116,7 +127,7 @@ class Dropdown extends Component {
 				      ]
 	    	};
 	    }
-	    
+
 	    console.log(this.props);
 	    console.log(this.state.opts);
 
@@ -127,8 +138,7 @@ class Dropdown extends Component {
     }
 
     handleChange(e) {
-    	this.setState({value: e.target.value});
-    	this.props.callback(e.target.value);
+    	this.setState({value: e.target.value}, this.props.callback(e.target.value))
     }
 
 
@@ -142,8 +152,6 @@ class Dropdown extends Component {
     				<option className={opt.value} value={opt.value}> {opt.displayName} </option>
     		))}
 			</select>
-
-			{/*<p> Show me the {this.state.value} graph</p>*/}
 
 			</div>
 			);
