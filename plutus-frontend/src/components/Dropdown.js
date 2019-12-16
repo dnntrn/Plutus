@@ -35,8 +35,6 @@ class Dropdown extends Component {
 			  var companyNameSplit = jsonEntry.companyName.split(/(?=[A-Z])/);
 			  companyNameSplit[0] = companyNameSplit[0].charAt(0).toUpperCase() + companyNameSplit[0].substring(1);
 
-			  var companyDisplayName = companyNameSplit.join(" ");
-			  uniqueCompaniesDisplayNames.push(companyDisplayName);
 
 			  uniqueCompanies.push(jsonEntry.companyName);
 
@@ -45,8 +43,6 @@ class Dropdown extends Component {
 			var positionNameSplit = jsonEntry.positionTitle.split(/(?=[A-Z])/);
 			positionNameSplit[0] = positionNameSplit[0].charAt(0).toUpperCase() + positionNameSplit[0].substring(1);
 
-			var positionDisplayName = positionNameSplit.join(" ");
-			uniquePositionsDisplayNames.push(positionDisplayName);
 
 			 uniquePositions.push(jsonEntry.positionTitle);
 		   }
@@ -64,7 +60,6 @@ class Dropdown extends Component {
 			var item = {
 			  id:i,
 			  value:company,
-			  displayName:uniqueCompaniesDisplayNames[i]
 			};
 			companyOpts.push(item);
 
@@ -75,7 +70,6 @@ class Dropdown extends Component {
 			var item = {
 			  id:i,
 			  value:position,
-			  displayName:uniquePositionsDisplayNames[i]
 			};
 			positionOpts.push(item);
 
@@ -132,14 +126,16 @@ class Dropdown extends Component {
 	    console.log(this.state.opts);
 
 	}
+}
 
-	doCallback(a) {
+
+	doCallback(a){
 	   this.props.callback(this.state.value);
     }
 
     handleChange(e) {
     	this.setState({value: e.target.value}, this.props.callback(e.target.value))
-    }
+	}
 
 
 
