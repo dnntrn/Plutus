@@ -93,6 +93,23 @@ router.post('/addASalary', function(req, res, next) {
 
   console.log(req.body)
 
+  const tempCompanyObj = new Company({
+      "companyName": companyName,
+      "companyNameLower": companyName.trim().toLowerCase(),
+  }); 
+
+  Company.findOne({ 'companyNameLower': companyName.trim().toLowerCase() }, function (err, company) {
+    if (err){
+      tempCompanyObj.save(function(err){
+        if (err) {
+          console.log(err);
+        }
+        console.log(" saved ");
+      })
+    }
+  });
+
+
   const tempEntryObj = new Entry({
       "companyName": companyName,
       "positionTitle": positionTitle,
