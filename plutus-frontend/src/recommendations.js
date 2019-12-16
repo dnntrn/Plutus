@@ -87,14 +87,12 @@ class Recommendations extends Component {
         })
         .then(searchResponse => searchResponse.json())
         .then(data => {
-          console.log(data.hits.hits);
-          console.log(data.aggregations.group_by_company.buckets);
           if (data.hits.hits.length > 0) {
             this.setState({companyReviewMatches: data.hits.hits})
             this.setState({companyRecommendationMatches: data.aggregations.group_by_company.buckets})
-            console.log(data[0]._source.CompanyName)
           } else {
-            this.setState({companyMatches: []})
+            this.setState({companyReviewMatches: []})
+            this.setState({companyRecommendationMatches: []})
           }
         })
         .catch(function(err){
@@ -115,7 +113,7 @@ class Recommendations extends Component {
         <div>
         <div id="allContent">
           <div id= "header">
-            <h1>What companies Would be a fit for you?</h1>
+            <h1>What Companies Would be a Fit for You?</h1>
           </div>
 
           <div id= "searchBox">
