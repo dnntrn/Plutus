@@ -187,7 +187,7 @@ class NavBar extends Component {
 						  </Form.Row>
 
 						  <Modal.Footer>
-							  <Button variant="secondary" type="submit" onClick={(e) => this.onSubmit(e)}>
+							  <Button style = {{backgroundColor:"crimson", borderColor:"crimson"}} variant="secondary" type="submit" onClick={(e) => this.onSubmit(e)}>
 								  Submit
 							  </Button>
 						  </Modal.Footer>

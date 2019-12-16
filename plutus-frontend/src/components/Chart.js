@@ -19,7 +19,7 @@ class Chart extends Component {
 					    xAxes: [{
 					      scaleLabel: {
 					        display: true,
-					        labelString: 'Month'
+					        labelString: 'Position'
 					      }
 					    }],
 					  }
@@ -61,7 +61,8 @@ class Chart extends Component {
 			datasets: [{
 				label: "Salary",
 				data: aveData
-			}]
+			}],
+
 		};
 		return (
 			<div className="chart">
