@@ -9,6 +9,13 @@ router.get('/', function(req, res, next) {
   res.send("API is connected to frontend");
 });
 
+router.get('/companies', function(req, res) {
+  Company.find({}, function(err, companies) {
+    res.json(companies);
+ });
+}
+
+
 router.get('/dashboard', function(req, res) {
   const { companyName, positionTitle } = req.query;
   console.log(positionTitle)
