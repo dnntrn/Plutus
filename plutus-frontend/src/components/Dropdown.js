@@ -13,7 +13,7 @@ class Dropdown extends Component {
 	    };
 
 	    var uniqueCompanies = [];
-	    
+
 	    var uniquePositions =[];
 
 	    for (var i in jsonData) {
@@ -92,7 +92,7 @@ class Dropdown extends Component {
 				      ]
 	    	};
 	    }
-	    
+
 	    console.log(this.props);
 	    console.log(this.state.opts);
 
@@ -103,8 +103,7 @@ class Dropdown extends Component {
     }
 
     handleChange(e) {
-    	this.setState({value: e.target.value});
-    	this.props.callback(e.target.value);
+    	this.setState({value: e.target.value}, this.props.callback(e.target.value))
     }
 
 
@@ -118,8 +117,6 @@ class Dropdown extends Component {
     				<option className={opt.value} value={opt.value}> {opt.value} </option>
     		))}
 			</select>
-
-			{/*<p> Show me the {this.state.value} graph</p>*/}
 
 			</div>
 			);

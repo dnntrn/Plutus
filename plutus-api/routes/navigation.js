@@ -10,31 +10,65 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/dashboard', function(req, res) {
-  const { companyName, positionTitle, positionLevel } = req.query;
+  const { companyName, positionTitle } = req.query;
+  console.log(positionTitle)
 
-  const query = {
-    positionTitle: positionTitle,
+  let matchArr = []
+
+  if (companyName) {
+    matchArr.push({ "match": { "CompanyName": companyName }})
   }
 
-  if (companyName.length > 0) {
-    query.companyName = companyName;
+  if (positionTitle) {
+    matchArr.push({ "match": { "Position": positionTitle }})
   }
 
-  if (positionLevel.length > 0) {
-    query.positionLevel = positionLevel;
-  }
+  esClient.search({
+      index: 'company-review',
+      body: {
+        query: {
+          "bool" : {
+                "must": matchArr,
+            },
+        },
 
-  Averages.find({}, function(err, varToStoreResult) {
-    if (err){
-      console.log(err);
-    } else{
-      console.log(varToStoreResult)
-      res.json(varToStoreResult);
-    }
+        "aggs": {
+            "group_by_level": {
+              "terms": {
+                "field": "JobLevel",
+                "order": {"average_salary": "desc"}
+              },
+
+              "aggs": {
+                  "average_salary": {
+                    "avg": {
+                      "field": "salary",
+                    },
+                  },
+                },
+            },
+
+          },
+
+      }
+  }).then(function(resp) {
+      // console.log(resp.aggregations.group_by_level.buckets)
+      res.json(resp.aggregations.group_by_level.buckets);
+  }, function(err) {
+      console.trace(err.message);
+  }).catch(function(err){
+    console.log(err)
   });
 
-  console.log("nada")
-  res.json({});
+  // Entry.find({}, function(err, varToStoreResult) {
+  //   if (err){
+  //     console.log(err);
+  //   } else{
+  //     console.log(varToStoreResult)
+  //     res.json(varToStoreResult);
+  //   }
+  // });
+
 
 });
 

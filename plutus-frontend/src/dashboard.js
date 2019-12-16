@@ -87,27 +87,25 @@ class Dashboard extends Component {
   }
 
 
-  callAPIDashboard() {
-      fetch("http://localhost:9000/dashboard")
-          .then(res => res.text())
-          .then(res => this.setState({ apiResponse: res }));
-
-  };
-
-
-  componentWillMount() {
-      this.callAPIDashboard();
-  }
+  // callAPIDashboard() {
+  //     fetch("http://localhost:9000/dashboard")
+  //         .then(res => res.text())
+  //         .then(res => this.setState({ apiResponse: res }));
+  //
+  // };
+  //
+  //
+  // componentWillMount() {
+  //     this.callAPIDashboard();
+  // }
   companyCallback = (companyData) => {
-
     this.setState({currCompany: companyData});
-
   }
 
   levelCallback = (levelData) => {
-
     this.setState({currLevel: levelData});
   }
+
   NumChartsCallback = (num) => {
     this.setState({
       NumCharts: num,
@@ -116,7 +114,7 @@ class Dashboard extends Component {
   }
 
   render () {
-    let newArray =Array.from({ length: this.state.NumCharts }, (v, i) => i)
+    let newArray = Array.from({ length: this.state.NumCharts }, (v, i) => i)
     return (
       <div className="Dashboard">
         <NavBar />
@@ -126,7 +124,7 @@ class Dashboard extends Component {
           <Row>
             <Col><Dropdown type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/></Col>
           </Row>
- 
+
           <Row>
             {newArray.map(num =>
               <> <Col  xs="6">
@@ -135,7 +133,7 @@ class Dashboard extends Component {
             </>)}
           </Row>
 
-  
+
           </Container>
 
 
