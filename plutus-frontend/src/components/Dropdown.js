@@ -13,7 +13,6 @@ class Dropdown extends Component {
 	    };
 
 	    var uniqueCompanies = [];
-
 	    var uniquePositions =[];
 
 	    for (var i in jsonData) {
@@ -28,6 +27,7 @@ class Dropdown extends Component {
 
 	    var uniquePositions =[];
 		var uniquePositionsDisplayNames = [];
+		var uniqueCompaniesDisplayNames = [];
 
 		for (var i in jsonData) {
 			var jsonEntry = jsonData[i];
@@ -132,8 +132,10 @@ class Dropdown extends Component {
 	    console.log(this.state.opts);
 
 	}
+}
 
-	doCallback(a) {
+
+	doCallback(a){
 	   this.props.callback(this.state.value);
     }
 
