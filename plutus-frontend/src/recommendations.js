@@ -158,7 +158,7 @@ class Recommendations extends Component {
                 <Form.Label>Company Keyword Search</Form.Label>
                 <Form.Control type="text" name="keywords" onChange={this.handleChange} />
                 <Form.Text className="inputInfo">
-                  Please enter your keywords seperated by commas.
+                  Please enter a keyword or a phrase.
                 </Form.Text>
               </Form.Group>
 
