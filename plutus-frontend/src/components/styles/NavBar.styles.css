@@ -31,17 +31,19 @@
 }
 
 #basic-navbar-nav {
-  display: flex;
-  display: -webkit-flex;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
+  color:black;
 }
 
 
 .nav-link {
-  color: black;
+  color: black !important;
   font-size: 1.3em;
 }
+
+.nav-link:hover {
+  color: #990E23 !important;
+}
+
 #nav-brand {
   font-family: 'Arima Madurai Extra Bold';
   color: black;

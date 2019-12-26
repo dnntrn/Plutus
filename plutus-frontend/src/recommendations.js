@@ -4,6 +4,8 @@ import NavBar from './components/NavBar'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
 import Footer from './components/Footer';
 
 import SearchReviewBox from './components/SearchReviewBox'
@@ -29,7 +31,6 @@ class Recommendations extends Component {
       NumCharts:null,
     }
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -49,8 +50,6 @@ class Recommendations extends Component {
         minSalary:this.state.minSalary,
         keywords: this.state.keywords
       }
-
-      console.log(formData)
 
       const jobRole = formData.jobRole
 
@@ -80,8 +79,6 @@ class Recommendations extends Component {
         queryString = queryString + "&keywords=" + formData.keywords
       }
 
-      console.log(queryString)
-
       fetch(queryString, {
           method: 'GET',
         })
@@ -105,15 +102,30 @@ class Recommendations extends Component {
 
   render () {
     const { companyReviewMatches, companyRecommendationMatches } = this.state
-    console.log(companyReviewMatches);
-    console.log(companyRecommendationMatches)
     return (
       <div className="Recommendations">
         <NavBar activeKey={3}/>
+
+        <header>
+          <Container>
+            <Row>
+              <Col>
+                <h1>What Companies Would be a Fit for You?</h1>
+              </Col>
+              <Col md="5">
+                <p>Search for companies that may fit your needs.</p>
+                <p>Read all the reviews left for that company and position.</p>
+              </Col>
+            </Row>
+          </Container>
+
+        </header>
         <div>
+
+
         <div id="allContent">
 
-          <h1>What Companies Would be a Fit for You?</h1>
+
 
           <div id= "searchBox">
             <h3>Search here:</h3>

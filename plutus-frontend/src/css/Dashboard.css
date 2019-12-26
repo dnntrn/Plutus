@@ -5,14 +5,40 @@
 }
 
 .Dashboards {
-  text-align: center;
+  /* text-align: center; */
+}
+
+.Dashboards header {
+  /* width: 25%; */
+  /* margin-left: 10%; */
+  margin-top: 5%;
 }
 
 .Dashboards h1 {
   font-family: 'Crete Round';
   font-weight: bold;
-  font-size: 5em;
+  font-size: 4em;
   font-style: italic;
+}
+
+#dashHeader {
+  /* border-bottom: 1px solid #FFC762; */
+  /* border-bottom: 1px solid #990E23; */
+  /* background-color: #FFC762;
+  padding: 5%; */
+}
+
+#dashHeader h1{
+  border-bottom: 1px solid #990E23;
+}
+
+#filterBox {
+  text-align: center;
+  /* width: 50%; */
+  margin-top: 5%;
+  background-color: #FFC762;
+  padding: 5%;
+  /* margin:auto; */
 }
 
 #chartsSection {
@@ -24,6 +50,7 @@
 }
 
 #allContentDash {
+  text-align: center;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -57,11 +84,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-#filterBox {
-  width: 50%;
-  margin:auto;
 }
 
 .chart {

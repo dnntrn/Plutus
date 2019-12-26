@@ -49,8 +49,6 @@ class NavBar extends Component {
 				degreeLevel: this.state.degreeLevel,
       }
 
-      console.log(submitData)
-
 			fetch('/addASalary', {
 					headers: {
 			      'Accept': 'application/json',
@@ -76,20 +74,22 @@ class NavBar extends Component {
 
 		return (
 			<div style={{ backgroundColor:"#FFC762"}}>
-				<Navbar bg="#FFC762" >
+				<Navbar bg="#FFC762" expand="lg">
 					<Navbar.Brand href="/">
 						<img src={ "/god-of-wealth.png" } style={{height:70}}  alt=""></img>
 					</Navbar.Brand>
 					<Navbar.Brand href="/" id="nav-brand">
 						Plutus
 					</Navbar.Brand>
-					<Navbar.Toggle />
-					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav.Link href="/">Home</Nav.Link>
-						<Nav.Link href="/dashboard">Dashboard</Nav.Link>
-						<Nav.Link href="/Recommendations">Recommendations</Nav.Link>
-						<Nav.Link href="#" onClick={this.toggleModal}>Add a Salary</Nav.Link>
-					</Navbar.Collapse>
+					<Navbar.Toggle aria-controls="basic-navbar-nav"/>
+					<Nav className="ml-auto">
+						<Navbar.Collapse id="basic-navbar-nav">
+								<Nav.Link href="/" className="nav-link">Home</Nav.Link>
+								<Nav.Link href="/dashboard" className="nav-link">Dashboard</Nav.Link>
+								<Nav.Link href="/Recommendations" className="nav-link">Recommendations</Nav.Link>
+								<Nav.Link href="#" onClick={this.toggleModal} className="nav-link">Add a Salary</Nav.Link>
+						</Navbar.Collapse>
+					</Nav>
 				</Navbar>
 		<Modal show={this.state.showModal} onHide={this.toggleModal} size="lg" id="salaryModal" aria-labelledby="contained-modal-title-vcenter" centered>
 		  <Modal.Header closeButton>
@@ -162,7 +162,7 @@ class NavBar extends Component {
 						  </Form.Row>
 
 						  <Modal.Footer>
-							  <Button style = {{backgroundColor:"crimson", borderColor:"crimson"}} variant="secondary" type="submit" onClick={(e) => this.onSubmit(e)}>
+							  <Button style = {{backgroundColor:"#EC9220",borderColor:"#EC9220", color: "#990E23", fontStyle: "italic"}} variant="secondary" type="submit" onClick={(e) => this.onSubmit(e)}>
 								  Submit
 							  </Button>
 						  </Modal.Footer>

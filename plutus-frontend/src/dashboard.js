@@ -124,18 +124,29 @@ class Dashboard extends Component {
     return (
       <div className="Dashboards">
         <NavBar />
-        <h1 style={{marginTop: "3%"}}> Dashboards </h1>
-        <div id="allContentDash">
-
+        <header>
           <Container>
             <Row>
-              <div id="filterBox">
-                  <p>Compare</p>
-                  <Dropdown name ="Number of Charts" type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
-                  <p> </p>
-                  <p>companies.</p>
-              </div>
+              <Col>
+                <div id="dashHeader">
+                  <h1 style={{marginTop: "3%"}}> Dashboards </h1>
+                  <p> These dashboards are updated periodically as new company information comes in. </p>
+                  <p> For campanies with little information, we recommend using our reccommendations service to view all the the company's reviews. </p>
+                </div>
+              </Col>
+              <Col md="8">
+                <div id="filterBox">
+                    <p>Compare</p>
+                    <Dropdown name ="Number of Charts" type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
+                    <p> </p>
+                    <p>companies.</p>
+                </div>
+              </Col>
             </Row>
+          </Container>
+        </header>
+        <div id="allContentDash">
+          <Container>
             <Row id="chartsSection">
               {mapsRender}
             </Row>
