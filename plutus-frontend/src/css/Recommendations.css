@@ -1,9 +1,19 @@
-.Recommendations {
+@font-face {
+  font-family: 'Crete Round';
+  font-style: serif;
+  src: url('https://fonts.googleapis.com/css?family=Crete+Round&display=swap'); /* IE9 Compat Modes */
 }
 
-#header {
+.Recommendations h1 {
   text-align: center;
   margin-bottom: 5%;
+  font-family: 'Crete Round';
+  font-weight: bold;
+}
+
+.Recommendations h2 {
+  font-family: 'Crete Round';
+  margin-bottom: 3%;
 }
 
 #allContent {
@@ -18,7 +28,7 @@
 }
 
 .btn-primary {
-  background-Color:#ffbe47; 
+  background-Color:#ffbe47;
   border-Color:#ffbe47;
 
 }
@@ -47,4 +57,3 @@ body {
   position: relative;
   margin: 0;
 }
-

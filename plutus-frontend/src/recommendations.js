@@ -112,9 +112,8 @@ class Recommendations extends Component {
         <NavBar activeKey={3}/>
         <div>
         <div id="allContent">
-          <div id= "header">
-            <h1>What Companies Would be a Fit for You?</h1>
-          </div>
+
+          <h1>What Companies Would be a Fit for You?</h1>
 
           <div id= "searchBox">
             <h3>Search here:</h3>
