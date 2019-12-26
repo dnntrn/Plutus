@@ -161,7 +161,7 @@ class Recommendations extends Component {
                 </Form.Text>
               </Form.Group>
 
-              <Button style = {{backgroundColor:"crimson", borderColor:"crimson"}} variant="primary" type="submit" onClick={(e) => this.onSubmit(e)}>
+              <Button style = {{backgroundColor:"#EC9220",borderColor:"#EC9220", color: "#990E23", fontStyle: "italic"}} className ="actionButton" variant="primary" type="submit" onClick={(e) => this.onSubmit(e)}>
                 Search
               </Button>
             </Form>

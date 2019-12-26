@@ -9,6 +9,8 @@
   margin-bottom: 5%;
   font-family: 'Crete Round';
   font-weight: bold;
+  font-size: 4em;
+  font-style: italic;
 }
 
 .Recommendations h2 {
@@ -36,7 +38,7 @@
 
 
 #searchBox {
-  background-color: #9B0D23;
+  background-color: #990E23;
   padding: 1% 2% 1% 2%;
   color: white;
   width: 27%;
@@ -56,4 +58,15 @@ body {
   min-height: 100vh;
   position: relative;
   margin: 0;
+}
+
+.actionButton {
+  background-color:"#EC9220";
+  border-color:"#EC9220";
+  color: "#990E23";
+  font-style: "italic";
+}
+
+.actionButton:hover {
+  text-decoration: underline !important;
 }

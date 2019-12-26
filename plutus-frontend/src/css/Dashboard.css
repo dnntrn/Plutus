@@ -11,6 +11,8 @@
 .Dashboards h1 {
   font-family: 'Crete Round';
   font-weight: bold;
+  font-size: 5em;
+  font-style: italic;
 }
 
 #chartsSection {
@@ -64,4 +66,9 @@
 
 .chart {
   background-color: white;
+}
+
+.rowTitle {
+  font-family: 'Crete Round', serif;
+  font-weight: bold;
 }

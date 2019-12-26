@@ -31,13 +31,12 @@ class App extends Component {
             <h2 className="subtitleH2">Find Out What Smarter and Better CS People Are Getting Paid</h2>
             <h3 className="subtitleH3">Figure out if you should negotiate, keep interviewing, or accept that offer!</h3>
           </div>
-          <Button variant="primary" size="lg" style = {{backgroundColor:"crimson",borderColor:"brown"}}>
-            <a href = "/recommendations" style ={{textDecoration:"none", color:"inherit"}}>Start Searching</a>
+          <Button variant="primary" size="lg" style = {{backgroundColor:"#EC9220",borderColor:"#EC9220"}} onClick={(e) => {this.props.history.push('/recommendations')}}>
+            <a href = "/recommendations" style ={{color: "#990E23", fontStyle: "italic"}}>Start Searching</a>
           </Button>
         </Jumbotron>
 
         <main>
-          <h2>How it Works:</h2>
           <Container>
             <Row id="about" style={{borderBottom: "1px solid brown"}}>
               <Col>
