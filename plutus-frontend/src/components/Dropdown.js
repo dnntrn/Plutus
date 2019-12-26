@@ -15,7 +15,7 @@ class Dropdown extends Component {
 	    var uniqueCompanies = [];
 	    var uniquePositions =[];
 
-	    
+
 		var uniquePositionsDisplayNames = [];
 		var uniqueCompaniesDisplayNames = [];
 
@@ -138,13 +138,14 @@ class Dropdown extends Component {
 	render() {
 		return (
 			<div>
-			<p><b> {this.state.name} </b></p>
+			<p>{this.state.name}</p>
 			<select onChange={(e) => this.handleChange(e)}>
 			{this.state.opts.map((opt) => (
     				<option className={opt.value} value={opt.value}> {opt.displayName} </option>
+
     		))}
 			</select>
-
+			<p></p>
 			</div>
 			);
 	}

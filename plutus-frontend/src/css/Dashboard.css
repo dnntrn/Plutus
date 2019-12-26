@@ -1,5 +1,20 @@
-.Dashboard {
+@font-face {
+  font-family: 'Crete Round';
+  font-style: serif;
+  src: url('https://fonts.googleapis.com/css?family=Crete+Round&display=swap'); /* IE9 Compat Modes */
+}
+
+.Dashboards {
   text-align: center;
+}
+
+.Dashboards h1 {
+  font-family: 'Crete Round';
+  font-weight: bold;
+}
+
+#chartsSection {
+  margin-top: 3%;
 }
 
 .logo {
@@ -40,4 +55,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+#filterBox {
+  width: 50%;
+  margin:auto;
+}
+
+.chart {
+  background-color: white;
 }
