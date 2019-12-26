@@ -76,46 +76,21 @@ class NavBar extends Component {
 
 		return (
 			<div style={{ backgroundColor:"#FFC762"}}>
-				<Navbar bg="#FFC762" expand="lg">
-				<Navbar.Brand href="/">     <img src={ "/god-of-wealth.png" } style={{height:70}}  alt=""></img>
-				</Navbar.Brand>
-				<Navbar.Toggle aria-controls="basic-navbar-nav" />
-				<Navbar.Collapse id="basic-navbar-nav" >
-					<Nav className="mr-auto" >
-					<Nav.Link href="/">Home</Nav.Link>
-					<Nav.Link href="/dashboard">Dashboard</Nav.Link>
-					<Nav.Link href="/Recommendations">Recommendations</Nav.Link>
-					<Nav.Link href="#" onClick={this.toggleModal}>Add a Salary</Nav.Link>
-					</Nav>
-				</Navbar.Collapse>
-				</Navbar>
-				{/*<Nav activeKey = {this.props.activeKey}>
-					<Navbar.Brand>
-						<a href = "/">
-							<img src={ "/god-of-wealth.png" } style={{height:70}} alt="logo"/>
-						</a>
+				<Navbar bg="#FFC762" >
+					<Navbar.Brand href="/">
+						<img src={ "/god-of-wealth.png" } style={{height:70}}  alt=""></img>
 					</Navbar.Brand>
-				  <Nav.Item eventKey="1" className="App-Name">
-				  	<a href = "/" style={{  textDecoration:"none", color: 'inherit'}}>
-				    	<h1 eventKey="disabled" disabled>Plutus</h1>
-					</a>
-				  </Nav.Item>
-				  <Nav.Item eventKey="2" className="App-Subtitle">
-						<Nav.Link eventKey="disabled" disabled>
-				   		how much will you make?
-						</Nav.Link>
-				  </Nav.Item>
-
-				<NavDropdown title="Navigate" id="nav-dropdown" style={{marginTop:"30px"}}>
-		        <NavDropdown.Item eventKey="4.1" href="/">Home</NavDropdown.Item>
-		        <NavDropdown.Item eventKey="4.2" href="/dashboard">Dashboard</NavDropdown.Item>
-		        <NavDropdown.Item eventKey="4.3" href="/recommendations">Recommendations</NavDropdown.Item>
-		        <NavDropdown.Divider />
-		        <NavDropdown.Item eventKey="4.4" onSelect={this.toggleModal}>Add your salary info</NavDropdown.Item>
-		      </NavDropdown>
-		</Nav> */}
-
-
+					<Navbar.Brand href="/" id="nav-brand">
+						Plutus
+					</Navbar.Brand>
+					<Navbar.Toggle />
+					<Navbar.Collapse id="basic-navbar-nav">
+						<Nav.Link href="/">Home</Nav.Link>
+						<Nav.Link href="/dashboard">Dashboard</Nav.Link>
+						<Nav.Link href="/Recommendations">Recommendations</Nav.Link>
+						<Nav.Link href="#" onClick={this.toggleModal}>Add a Salary</Nav.Link>
+					</Navbar.Collapse>
+				</Navbar>
 		<Modal show={this.state.showModal} onHide={this.toggleModal} size="lg" id="salaryModal" aria-labelledby="contained-modal-title-vcenter" centered>
 		  <Modal.Header closeButton>
 			<Modal.Title>Add Your Salary Info</Modal.Title>
