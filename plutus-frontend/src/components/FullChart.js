@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Dropdown from './Dropdown.js';
 import Chart from './Chart.js';
-import {Row,Col,Card} from 'react-bootstrap';
+import {Row, Col, Card, Container} from 'react-bootstrap';
 
 class FullChart extends Component {
     constructor(props){
@@ -15,7 +15,6 @@ class FullChart extends Component {
     }
 
     companyCallback = (companyData) => {
-      console.log("company")
       const {position, currCompany} = this.state
       this.setState({currCompany: companyData}, () => {
         let queryString = "/dashboard/?"
@@ -48,7 +47,6 @@ class FullChart extends Component {
     positionCallback = (positionData) => {
       const {position, currCompany} = this.state
       this.setState({position: positionData}, ()=> {
-        console.log(positionData)
         let queryString = "/dashboard/?"
 
         if (this.state.currCompany.length > 0) {
@@ -78,18 +76,19 @@ class FullChart extends Component {
 
     render() {
         return (
-            <div>
-
-              <Col>
-                <Dropdown type="Company" callback={this.companyCallback} opts={this.props.ddopts} />
-                <Dropdown type="Position" callback={this.positionCallback} opts={this.props.levelsopts} />
-              </Col>
-              <Col>
-              <Chart company={this.state.currCompany} level={this.state.position} data={this.state.data} />
-              </Col>
-
-
-            </div>
+            <Container style={this.props.style}>
+              <Row>
+                <Col>
+                  <Dropdown type="Company" callback={this.companyCallback} opts={this.props.ddopts} />
+                  <Dropdown type="Position" callback={this.positionCallback} opts={this.props.levelsopts} />
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Chart company={this.state.currCompany} level={this.state.position} data={this.state.data} />
+                </Col>
+              </Row>
+            </Container>
 
          );
     }

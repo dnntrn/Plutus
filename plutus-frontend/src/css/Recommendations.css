@@ -1,9 +1,28 @@
-.Recommendations {
+@font-face {
+  font-family: 'Crete Round';
+  font-style: serif;
+  src: url('https://fonts.googleapis.com/css?family=Crete+Round&display=swap'); /* IE9 Compat Modes */
 }
 
-#header {
-  text-align: center;
+.Recommendations h1 {
   margin-bottom: 5%;
+  font-family: 'Crete Round';
+  font-weight: bold;
+  font-size: 4em;
+  text-align: left;
+  font-style: italic;
+  border-bottom: 1px solid #990E23;
+}
+
+
+.Recommendations header {
+  margin-top: 5%;
+}
+
+
+.Recommendations h2 {
+  font-family: 'Crete Round';
+  margin-bottom: 3%;
 }
 
 #allContent {
@@ -12,13 +31,12 @@
   margin-right: auto;
   margin-top: 3%;
   margin-bottom: 5%;
-
   min-height: 100vh;
   position: relative;
 }
 
 .btn-primary {
-  background-Color:#ffbe47; 
+  background-Color:#ffbe47;
   border-Color:#ffbe47;
 
 }
@@ -26,7 +44,7 @@
 
 
 #searchBox {
-  background-color: #9B0D23;
+  background-color: #990E23;
   padding: 1% 2% 1% 2%;
   color: white;
   width: 27%;
@@ -48,3 +66,13 @@ body {
   margin: 0;
 }
 
+.actionButton {
+  background-color:"#EC9220";
+  border-color:"#EC9220";
+  color: "#990E23";
+  font-style: "italic";
+}
+
+.actionButton:hover {
+  text-decoration: underline !important;
+}

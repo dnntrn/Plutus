@@ -1,5 +1,48 @@
-.Dashboard {
+@font-face {
+  font-family: 'Crete Round';
+  font-style: serif;
+  src: url('https://fonts.googleapis.com/css?family=Crete+Round&display=swap'); /* IE9 Compat Modes */
+}
+
+.Dashboards {
+  /* text-align: center; */
+}
+
+.Dashboards header {
+  /* width: 25%; */
+  /* margin-left: 10%; */
+  margin-top: 5%;
+}
+
+.Dashboards h1 {
+  font-family: 'Crete Round';
+  font-weight: bold;
+  font-size: 4em;
+  font-style: italic;
+}
+
+#dashHeader {
+  /* border-bottom: 1px solid #FFC762; */
+  /* border-bottom: 1px solid #990E23; */
+  /* background-color: #FFC762;
+  padding: 5%; */
+}
+
+#dashHeader h1{
+  border-bottom: 1px solid #990E23;
+}
+
+#filterBox {
   text-align: center;
+  /* width: 50%; */
+  margin-top: 5%;
+  background-color: #FFC762;
+  padding: 5%;
+  /* margin:auto; */
+}
+
+#chartsSection {
+  margin-top: 3%;
 }
 
 .logo {
@@ -7,6 +50,7 @@
 }
 
 #allContentDash {
+  text-align: center;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -40,4 +84,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.chart {
+  background-color: white;
+}
+
+.rowTitle {
+  font-family: 'Crete Round', serif;
+  font-weight: bold;
 }

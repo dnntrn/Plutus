@@ -86,18 +86,6 @@ class Dashboard extends Component {
     ]};
   }
 
-
-  // callAPIDashboard() {
-  //     fetch("http://localhost:9000/dashboard")
-  //         .then(res => res.text())
-  //         .then(res => this.setState({ apiResponse: res }));
-  //
-  // };
-  //
-  //
-  // componentWillMount() {
-  //     this.callAPIDashboard();
-  // }
   companyCallback = (companyData) => {
     this.setState({currCompany: companyData});
   }
@@ -114,32 +102,60 @@ class Dashboard extends Component {
   }
 
   render () {
-    let newArray = Array.from({ length: this.state.NumCharts }, (v, i) => i)
+    let chartsArray = Array.from({ length: this.state.NumCharts }, (v, i) => i)
+    let mapsRender = []
+
+    if (chartsArray.length == 1) {
+      mapsRender.push(
+        <Col>
+          <FullChart className ="chart" style={{padding:"3%"}} ddopts = {this.state.companies} levelsopts = {this.state.levels}/>
+        </Col>
+      )
+    } else {
+      chartsArray.map((map) => {
+        mapsRender.push(
+          <Col xs="6">
+            <FullChart className ="chart" style={{padding:"3%", margin:"2%"}} ddopts = {this.state.companies} levelsopts = {this.state.levels}/>
+          </Col>
+        )
+      })
+    }
+
     return (
-      <div className="Dashboard">
+      <div className="Dashboards">
         <NavBar />
-        <h1 style={{marginTop: "3%"}}> Dashboard </h1>
+        <header>
+          <Container>
+            <Row>
+              <Col>
+                <div id="dashHeader">
+                  <h1 style={{marginTop: "3%"}}> Dashboards </h1>
+                  <p> These dashboards are updated periodically as new company information comes in. </p>
+                  <p> For campanies with little information, we recommend using our reccommendations service to view all the the company's reviews. </p>
+                </div>
+              </Col>
+              <Col md="8">
+                <div id="filterBox">
+                    <p>Compare</p>
+                    <Dropdown name ="Number of Charts" type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/>
+                    <p> </p>
+                    <p>companies.</p>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </header>
         <div id="allContentDash">
           <Container>
-          <Row>
-            <Col><Dropdown name ="Number of Charts" type ="NumCharts" callback ={this.NumChartsCallback} opts= {this.state.chartOptions}/></Col>
-          </Row>
-
-          <Row>
-            {newArray.map(num =>
-              <> <Col  xs="6">
-                  <FullChart ddopts = {this.state.companies} levelsopts = {this.state.levels}/>
-                </Col>
-            </>)}
-          </Row>
-
-
+            <Row id="chartsSection">
+              {mapsRender}
+            </Row>
           </Container>
 
         </div>
         <Footer/>
       </div>
-      )
+    )
   }
 
 
